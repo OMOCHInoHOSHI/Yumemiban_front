@@ -5,7 +5,7 @@ import './PostInput_Screen.css';
 const PostInput_Screen: React.FC = () => {
   return (
     <div>
-      <h1>作成</h1>
+      <h1>作成aa</h1>
     </div>
   );
 };

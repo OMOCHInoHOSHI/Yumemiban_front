@@ -8,7 +8,7 @@ const AppRoutes: React.FC = () => {
     return (
       <Routes>
         <Route path="/" element={<PostView_Screen />} />
-        <Route path="/edit" element={<PostInput_Screen />} />
+        <Route path="/PostInput_Screen" element={<PostInput_Screen />} />
       </Routes>
     );
   };

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './PostInput_Screen.css';
 
 const PostInput_Screen: React.FC = () => {
   return (

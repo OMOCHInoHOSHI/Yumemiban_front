@@ -4,6 +4,7 @@ import './index.css';
 import PostView_Screen from './pages/PostView_Screen';
 // import PostCard from './models/PostCard';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom' // routerで追加
 
 const rootElement = document.getElementById('root');
 if (rootElement) {

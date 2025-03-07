@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import PostView_Screen from './pages/PostView_Screen';
-import PostCard from './models/PostCard';
+// import PostCard from './models/PostCard';
 import reportWebVitals from './reportWebVitals';
 
 const rootElement = document.getElementById('root');

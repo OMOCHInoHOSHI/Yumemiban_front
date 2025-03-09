@@ -1,20 +1,24 @@
 /* PostCard.css */
+
+/* カードのスタイルを設定 */
 .post-card {
-    background-color: #ffb6c1;
-    margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
-  }
-  
-  .heart-button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-  
-  .heart-button .heart-icon {
-    transition: fill 0.3s;
-  }
-  
-  .heart-button .heart-icon.liked {
-    fill: black;
-  }
+  background-color: #ffb6c1;
+  margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
+}
+
+/* カードの中身のスタイルを設定 */
+.heart-button {
+  background: transparent; /* 背景を透明に設定 */
+  border: none; /* 枠をなしに設定 */
+  cursor: pointer; /* カーソルをポインターに変更 */
+  padding: 0; /* パディングをなしに設定 */
+}
+
+ /* ハートアイコンの色が変わるときのトランジションを設定 */
+.heart-button .heart-icon {
+  transition: fill 0.3s; /* fillプロパティの変化を0.3秒かけて変化させる */
+}
+
+.heart-button .heart-icon.liked {
+  fill: black; /* likedクラスが付いたときにハートの中身を黒色に設定 */
+}

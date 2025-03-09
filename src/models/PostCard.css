@@ -4,6 +4,7 @@
 .post-card {
   background-color: #ffb6c1;
   margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
+  position: relative; /* 相対位置を設定 */
 }
 
 /* カードの中身のスタイルを設定 */
@@ -12,6 +13,9 @@
   border: none; /* 枠をなしに設定 */
   cursor: pointer; /* カーソルをポインターに変更 */
   padding: 0; /* パディングをなしに設定 */
+  position: absolute; /* 絶対位置を設定 */
+  bottom: 16px; /* 下から16pxの位置に配置 */
+  right: 16px; /* 右から16pxの位置に配置 */
 }
 
  /* ハートアイコンの色が変わるときのトランジションを設定 */

@@ -1,22 +1,38 @@
-"use client"
+// PostCard.tsx
 
 import React, { useState } from "react"
 import { Heart } from "lucide-react"
 import './PostCard.css'; // CSSファイルをインポート
 
+// PostCardコンポーネントのプロパティの型を定義
 interface PostCardProps {
   name: string
   content: string
 }
 
+// PostCardコンポーネントを定義
 export function PostCard({ name, content }: PostCardProps) {
+  // likedステートを定義し、初期値をfalseに設定
   const [liked, setLiked] = useState(false)
 
   return (
     <div className="post-card w-full max-w-md mx-auto p-6 rounded">
+      
+      {/* 投稿者の名前を表示 */}
       <div className="font-medium text-lg mb-2">{name}</div>
-      <div className="flex justify-between items-start">
-        <p className="text-base mb-0">{content}</p>
+      <div className="content-container flex justify-between items-start">
+
+        {/* 投稿内容を表示 */}
+        <p className="text-base mb-0 content">
+          {content.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
+        </p>
+
+        {/* いいねボタン */}
         <button
           onClick={() => setLiked(!liked)} // ボタンがクリックされたときにlikedステートをトグル
           className="heart-button focus:outline-none"

@@ -2,12 +2,34 @@
 
 /* カードのスタイルを設定 */
 .post-card {
-  background-color: #ffb6c1;
+  background-color: #ffb6c1; /* カードの背景色を設定 */
   margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
   position: relative; /* 相対位置を設定 */
 }
 
 /* カードの中身のスタイルを設定 */
+.content-container {
+  max-height: 100px; /* 最大高さを設定 */
+  overflow-y: auto; /* スクロールを有効にする */
+  word-wrap: break-word; /* 長い単語を折り返す */
+}
+
+/* スクロールバーのスタイルを設定 */
+.content-container::-webkit-scrollbar {
+  width: 8px; /* スクロールバーの幅を設定 */
+}
+
+.content-container::-webkit-scrollbar-track {
+  background: #ffb6c1; /* スクロールバーのトラック（背景）をカードの背景色と同じに設定 */
+  padding-left: 2px; /* トラックの左側にパディングを追加してスクロールバーを左に移動 */
+}
+
+.content-container::-webkit-scrollbar-thumb {
+  background: #a9a9a9; /* スクロールバーのつまみの色を設定 */
+  border-radius: 4px; /* つまみの角を丸くする */
+}
+
+/* いいねボタンのスタイルを設定 */
 .heart-button {
   background: transparent; /* 背景を透明に設定 */
   border: none; /* 枠をなしに設定 */
@@ -18,7 +40,7 @@
   right: 16px; /* 右から16pxの位置に配置 */
 }
 
- /* ハートアイコンの色が変わるときのトランジションを設定 */
+/* ハートアイコンの色が変わるときのトランジションを設定 */
 .heart-button .heart-icon {
   transition: fill 0.3s; /* fillプロパティの変化を0.3秒かけて変化させる */
 }

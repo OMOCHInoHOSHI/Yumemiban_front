@@ -19,9 +19,18 @@ export function PostCard({ name, content }: PostCardProps) {
     <div className="post-card w-full max-w-md mx-auto p-6 rounded">
       
       {/* 投稿者の名前を表示 */}
-      <div className="font-medium text-lg mb-2">{name}</div>
+      <div className="header-container flex justify-between items-center mb-2">
+        <div className="font-medium text-lg">{name}</div>
+        {/* いいねボタン */}
+        <button
+          onClick={() => setLiked(!liked)} // ボタンがクリックされたときにlikedステートをトグル
+          className="heart-button focus:outline-none"
+          aria-label={liked ? "Unlike" : "Like"} // アクセシビリティのためのラベル
+        >
+          <Heart className={`heart-icon h-6 w-6 transition-all ${liked ? "liked" : ""}`} />
+        </button>
+      </div>
       <div className="content-container flex justify-between items-start">
-
         {/* 投稿内容を表示 */}
         <p className="text-base mb-0 content">
           {content.split('\n').map((line, index) => (
@@ -31,15 +40,6 @@ export function PostCard({ name, content }: PostCardProps) {
             </React.Fragment>
           ))}
         </p>
-
-        {/* いいねボタン */}
-        <button
-          onClick={() => setLiked(!liked)} // ボタンがクリックされたときにlikedステートをトグル
-          className="heart-button focus:outline-none"
-          aria-label={liked ? "Unlike" : "Like"} // アクセシビリティのためのラベル
-        >
-          <Heart className={`heart-icon h-6 w-6 transition-all ${liked ? "liked" : ""}`} />
-        </button>
       </div>
     </div>
   )

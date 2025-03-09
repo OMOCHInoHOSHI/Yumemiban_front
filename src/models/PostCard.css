@@ -2,9 +2,24 @@
 
 /* カードのスタイルを設定 */
 .post-card {
-  background-color: #ffb6c1; /* カードの背景色を設定 */
+  background-color: #ffb6c1;
   margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
   position: relative; /* 相対位置を設定 */
+}
+
+/* ヘッダーコンテナのスタイルを設定 */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px; /* 名前の上に隙間を作成 */
+  margin-bottom: 16px; /* 名前の下に隙間を作成 */
+}
+
+/* 名前のスタイルを設定 */
+.name {
+  margin-top: 16px; /* 名前の上に隙間を作成 */
+  margin-bottom: 16px; /* 名前の下に隙間を作成 */
 }
 
 /* カードの中身のスタイルを設定 */
@@ -36,13 +51,15 @@
   cursor: pointer; /* カーソルをポインターに変更 */
   padding: 0; /* パディングをなしに設定 */
   position: absolute; /* 絶対位置を設定 */
-  bottom: 16px; /* 下から16pxの位置に配置 */
-  right: 16px; /* 右から16pxの位置に配置 */
+  top: 6px; /* 上から6pxの位置に配置 */
+  right: 12px; /* 右から12pxの位置に配置 */
 }
 
 /* ハートアイコンの色が変わるときのトランジションを設定 */
 .heart-button .heart-icon {
   transition: fill 0.3s; /* fillプロパティの変化を0.3秒かけて変化させる */
+  height: 25px; /* アイコンの高さ設定 */
+  width: 25px; /* アイコンの幅設定 */
 }
 
 .heart-button .heart-icon.liked {

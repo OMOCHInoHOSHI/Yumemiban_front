@@ -6,6 +6,7 @@
   margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
   position: relative; /* 相対位置を設定 */
   padding: 10px; /* カードの内側に16pxのパディングを追加 */
+  border-radius: 4px; /* つまみの角を丸くする */
 }
 
 /* ヘッダーコンテナのスタイルを設定 */

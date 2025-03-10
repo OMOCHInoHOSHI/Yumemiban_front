@@ -11,7 +11,7 @@ interface InputProps {
     input: string;      // 入力フィールドの初期値
     required: boolean;  // 入力フィールドが必須かどうか
     maxLength?: number; // 入力フィールドの最大文字数(オプション)
-  }
+}
 
 // コンポーネントの定義 Functional Component
 // nameは入力フィールドの初期値、requiredはその入力フィールドが必須であるかどうかを示す真偽値
@@ -50,6 +50,9 @@ const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius, c
 
     return <div style={style}>{children}</div>;
 };
+// export default RoundedBox;
 // 背景のコンポーネントE--------------------------------------------------------------------------
 
-export default RoundedBox;InputForm;
+// 複数エクスポート
+// 名前付きエクスポート
+export { InputForm, RoundedBox };

@@ -1,7 +1,7 @@
 // ユーザー名のコンポーネント
 
 // import React from 'react';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 // let name = "name";
 
@@ -36,10 +36,11 @@ interface RoundedBoxProps {
     height: string;         // ボックスの高さ
     color: string;          // ボックスの色
     borderRadius: string;   // ボックスの角の丸み
+    children?: ReactNode; // 子要素を受け取るためのプロパティを追加
 }
 
-  // コンポーネントの定義
-const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius }) => {
+// 角が丸い四角形のボックスを描画し、その中に任意の子要素（テキストや他のコンポーネント）を表示することができます
+const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius, children }) => {
     const style = {
     width,
     height,
@@ -47,7 +48,7 @@ const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius })
     borderRadius,
     };
 
-    return <div style={style}></div>;
+    return <div style={style}>{children}</div>;
 };
 // 背景のコンポーネントE--------------------------------------------------------------------------
 

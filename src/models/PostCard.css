@@ -5,6 +5,7 @@
   background-color: #ffb6c1;
   margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
   position: relative; /* 相対位置を設定 */
+  padding: 10px; /* カードの内側に16pxのパディングを追加 */
 }
 
 /* ヘッダーコンテナのスタイルを設定 */
@@ -12,19 +13,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 16px; /* 名前の上に隙間を作成 */
-  margin-bottom: 16px; /* 名前の下に隙間を作成 */
+  margin-bottom: 7px; /* 名前の下に隙間を作成 */
 }
 
 /* 名前のスタイルを設定 */
 .name {
-  margin-top: 16px; /* 名前の上に隙間を作成 */
-  margin-bottom: 16px; /* 名前の下に隙間を作成 */
+  margin-left: 16px; /* 名前の左側に隙間を作成 */
 }
 
 /* カードの中身のスタイルを設定 */
 .content-container {
-  max-height: 100px; /* 最大高さを設定 */
+  max-height: 120px; /* 最大高さを設定 */
   overflow-y: auto; /* スクロールを有効にする */
   word-wrap: break-word; /* 長い単語を折り返す */
 }
@@ -51,7 +50,7 @@
   cursor: pointer; /* カーソルをポインターに変更 */
   padding: 0; /* パディングをなしに設定 */
   position: absolute; /* 絶対位置を設定 */
-  top: 6px; /* 上から6pxの位置に配置 */
+  top: 12px; /* 上から6pxの位置に配置 */
   right: 12px; /* 右から12pxの位置に配置 */
 }
 

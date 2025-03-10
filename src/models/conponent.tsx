@@ -25,6 +25,30 @@ const InputForm: FC<InputProps> = (props) => {
     );
 }
 
-export default InputForm;
+// export default InputForm;
 // 入力のコンポーネントE--------------------------------------------------------------------------
 
+
+// 背景のコンポーネントS--------------------------------------------------------------------------
+// プロパティの型を定義
+interface RoundedBoxProps {
+    width: string;          // ボックスの幅
+    height: string;         // ボックスの高さ
+    color: string;          // ボックスの色
+    borderRadius: string;   // ボックスの角の丸み
+  }
+  
+  // コンポーネントの定義
+  const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius }) => {
+    const style = {
+      width,
+      height,
+      backgroundColor: color,
+      borderRadius,
+    };
+  
+    return <div style={style}></div>;
+  };
+// 背景のコンポーネントE--------------------------------------------------------------------------
+
+export default RoundedBox;InputForm;

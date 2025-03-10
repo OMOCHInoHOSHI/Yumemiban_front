@@ -14,16 +14,24 @@ interface PostCardProps {
 export function PostCard({ name, content }: PostCardProps) {
   // likedステートを定義し、初期値をfalseに設定
   const [liked, setLiked] = useState(false)
+  // clickedステートを定義し、初期値をfalseに設定
+  const [clicked, setClicked] = useState(false)
 
   return (
-    <div className="post-card w-full max-w-md mx-auto p-6 rounded">
+    <div 
+      className="post-card w-full max-w-md mx-auto p-6 rounded"
+      onClick={() => setClicked(true)} // カードがクリックされたときにclickedステートをtrueに設定
+    >
       
       {/* 投稿者の名前を表示 */}
       <div className="header-container flex justify-between items-center mb-2">
         <div className="font-medium text-lg">{name}</div>
         {/* いいねボタン */}
         <button
-          onClick={() => setLiked(!liked)} // ボタンがクリックされたときにlikedステートをトグル
+          onClick={(e) => {
+            e.stopPropagation(); // クリックイベントが親要素に伝播するのを防ぐ
+            setLiked(!liked); // ボタンがクリックされたときにlikedステートをトグル
+          }}
           className="heart-button focus:outline-none"
           aria-label={liked ? "Unlike" : "Like"} // アクセシビリティのためのラベル
         >
@@ -33,7 +41,8 @@ export function PostCard({ name, content }: PostCardProps) {
       <div className="content-container flex justify-between items-start">
         {/* 投稿内容を表示 */}
         <p className="text-base mb-0 content">
-          {content.split('\n').map((line, index) => (
+          {/* カードをクリックした際の判定 */}
+          {clicked ? "クリック済み" : content.split('\n').map((line, index) => (
             <React.Fragment key={index}>
               {line}
               <br />

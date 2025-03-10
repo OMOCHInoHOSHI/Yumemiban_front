@@ -2,7 +2,7 @@
 
 /* カードのスタイルを設定 */
 .post-card {
-  background-color: #ffb6c1;
+  background-color: #fdeff2; /* カードの背景 */
   margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
   position: relative; /* 相対位置を設定 */
   padding: 10px; /* カードの内側に16pxのパディングを追加 */
@@ -34,7 +34,7 @@
 }
 
 .content-container::-webkit-scrollbar-track {
-  background: #ffb6c1; /* スクロールバーのトラック（背景）をカードの背景色と同じに設定 */
+  background: #fdeff2; /* スクロールバーの背景を設定 */
   padding-left: 2px; /* トラックの左側にパディングを追加してスクロールバーを左に移動 */
 }
 

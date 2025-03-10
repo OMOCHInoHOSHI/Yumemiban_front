@@ -36,19 +36,19 @@ interface RoundedBoxProps {
     height: string;         // ボックスの高さ
     color: string;          // ボックスの色
     borderRadius: string;   // ボックスの角の丸み
-  }
-  
+}
+
   // コンポーネントの定義
-  const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius }) => {
+const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius }) => {
     const style = {
-      width,
-      height,
-      backgroundColor: color,
-      borderRadius,
+    width,
+    height,
+    backgroundColor: color,
+    borderRadius,
     };
-  
+
     return <div style={style}></div>;
-  };
+};
 // 背景のコンポーネントE--------------------------------------------------------------------------
 
 export default RoundedBox;InputForm;

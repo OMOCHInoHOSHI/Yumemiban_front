@@ -1,7 +1,7 @@
 // ユーザー名のコンポーネント
 
 // import React from 'react';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 
 // let name = "name";
 
@@ -17,13 +17,29 @@ interface InputProps {
 // nameは入力フィールドの初期値、requiredはその入力フィールドが必須であるかどうかを示す真偽値
 const InputForm: FC<InputProps> = (props) => {
     const { input, required, maxLength } = props;
+
+    // valueは入力フィールドの値、setValueはvalueの値を変更するための関数
+    const [value, setValues] = useState(input);
+
+    // 入力フィールドの値が変更されたときに呼び出される関数
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValues(event.target.value);
+    };
+
     return (
         <div>
             <label>入力</label>
-            <input type="text" value={input} required={required} maxLength={maxLength} />
+            <input
+                type="text"
+                value={value}
+                required={required}
+                maxLength={maxLength}
+                onChange={handleChange}
+            />
         </div>
     );
 }
+
 
 // export default InputForm;
 // 入力のコンポーネントE--------------------------------------------------------------------------

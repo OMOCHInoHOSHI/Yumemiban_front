@@ -1,0 +1,67 @@
+/* PostCard.css */
+
+/* カードのスタイルを設定 */
+.post-card {
+  background-color: #fdeff2; /* カードの背景 */
+  margin-bottom: 16px; /* カードの間に16pxの隙間を作成 */
+  position: relative; /* 相対位置を設定 */
+  padding: 10px; /* カードの内側に16pxのパディングを追加 */
+  border-radius: 4px; /* つまみの角を丸くする */
+}
+
+/* ヘッダーコンテナのスタイルを設定 */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px; /* 名前の下に隙間を作成 */
+}
+
+/* 名前のスタイルを設定 */
+.name {
+  margin-left: 16px; /* 名前の左側に隙間を作成 */
+}
+
+/* カードの中身のスタイルを設定 */
+.content-container {
+  max-height: 120px; /* 最大高さを設定 */
+  overflow-y: auto; /* スクロールを有効にする */
+  word-wrap: break-word; /* 長い単語を折り返す */
+}
+
+/* スクロールバーのスタイルを設定 */
+.content-container::-webkit-scrollbar {
+  width: 8px; /* スクロールバーの幅を設定 */
+}
+
+.content-container::-webkit-scrollbar-track {
+  background: #fdeff2; /* スクロールバーの背景を設定 */
+  padding-left: 2px; /* トラックの左側にパディングを追加してスクロールバーを左に移動 */
+}
+
+.content-container::-webkit-scrollbar-thumb {
+  background: #a9a9a9; /* スクロールバーのつまみの色を設定 */
+  border-radius: 4px; /* つまみの角を丸くする */
+}
+
+/* いいねボタンのスタイルを設定 */
+.heart-button {
+  background: transparent; /* 背景を透明に設定 */
+  border: none; /* 枠をなしに設定 */
+  cursor: pointer; /* カーソルをポインターに変更 */
+  padding: 0; /* パディングをなしに設定 */
+  position: absolute; /* 絶対位置を設定 */
+  top: 12px; /* 上から6pxの位置に配置 */
+  right: 12px; /* 右から12pxの位置に配置 */
+}
+
+/* ハートアイコンの色が変わるときのトランジションを設定 */
+.heart-button .heart-icon {
+  transition: fill 0.3s; /* fillプロパティの変化を0.3秒かけて変化させる */
+  height: 25px; /* アイコンの高さ設定 */
+  width: 25px; /* アイコンの幅設定 */
+}
+
+.heart-button .heart-icon.liked {
+  fill: black; /* likedクラスが付いたときにハートの中身を黒色に設定 */
+}

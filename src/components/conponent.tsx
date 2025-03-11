@@ -55,4 +55,4 @@ const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius, c
 
 // 複数エクスポート
 // 名前付きエクスポート
-export { InputForm, RoundedBox };
+export default { InputForm, RoundedBox };

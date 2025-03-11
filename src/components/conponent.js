@@ -23,4 +23,4 @@ const RoundedBox = ({ width, height, color, borderRadius, children }) => {
 // 背景のコンポーネントE--------------------------------------------------------------------------
 // 複数エクスポート
 // 名前付きエクスポート
-export { InputForm, RoundedBox };
+export default { InputForm, RoundedBox };

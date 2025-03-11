@@ -69,6 +69,20 @@ const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius, c
 // export default RoundedBox;
 // 背景のコンポーネントE--------------------------------------------------------------------------
 
+// 生成ボタンのコンポーネントS--------------------------------------------------------------------------
+interface GenerateButtonProps {
+    onClick: () => void;    // ボタンがクリックされたときに呼び出される関数
+}
+
+const GenerateButton: FC<GenerateButtonProps> = ({ onClick }) => {
+    return (
+        <button onClick={onClick}>生成</button>
+    );
+};
+
+// 生成ボタンのコンポーネントE--------------------------------------------------------------------------
+
+
 // 複数エクスポート
 // 名前付きエクスポート
 export default { InputForm, RoundedBox };

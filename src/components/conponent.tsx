@@ -28,7 +28,7 @@ const InputForm: FC<InputProps> = (props) => {
 
     return (
         <div>
-            <label>入力</label>
+            {/* <label>入力</label> */}
             <input
                 type="text"
                 value={value}

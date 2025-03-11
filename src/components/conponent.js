@@ -12,7 +12,6 @@ const InputForm = (props) => {
         setValues(event.target.value);
     };
     return (React.createElement("div", null,
-        React.createElement("label", null, "\u5165\u529B"),
         React.createElement("input", { type: "text", value: value, required: required, maxLength: maxLength, onChange: handleChange })));
 };
 // 角が丸い四角形のボックスを描画し、その中に任意の子要素（テキストや他のコンポーネント）を表示することができます

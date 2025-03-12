@@ -12,7 +12,7 @@ const InputForm = ({ input, required, maxLength, onChange }) => {
         onChange(event.target.value); // 親コンポーネントに値を伝える
     };
     return (React.createElement("div", null,
-        React.createElement("input", { type: "text", value: input, required: required, maxLength: maxLength, onChange: handleChange })));
+        React.createElement("input", { type: "text", value: value, required: required, maxLength: maxLength, onChange: handleChange })));
 };
 // 角が丸い四角形のボックスを描画し、その中に任意の子要素（テキストや他のコンポーネント）を表示することができます
 const RoundedBox = ({ width, height, color, borderRadius, children }) => {

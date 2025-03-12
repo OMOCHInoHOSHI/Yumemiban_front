@@ -32,7 +32,7 @@ const InputForm: FC<InputProps> = ({ input, required, maxLength, onChange }) => 
             {/* <label>入力</label> */}
             <input
                 type="text"
-                value={input}
+                value={value}
                 required={required}
                 maxLength={maxLength}
                 onChange={handleChange}

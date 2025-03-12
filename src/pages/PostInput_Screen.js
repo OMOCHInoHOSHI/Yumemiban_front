@@ -8,17 +8,7 @@ const PostInput_Screen = () => {
     // 初期値を空文字列に設定
     const [nickname, setNickname] = useState(''); // ニックネーム
     const [content, setContent] = useState(''); // 夢の内容
-    // // ニックネームと夢の内容を送信する関数
-    // const handleInputChange = (name: string, value: string) => {
-    //   // 入力された値を変数に格納
-    //   if (name === 'nickname') {
-    //     setNickname(value);
-    //   } else if (name === 'content') {
-    //     setContent(value);
-    //   }
-    // };
     const handleSubmit = () => {
-        console.log("たなか");
         // ニックネームと文章を textpush 関数に渡す
         textpush(nickname, content);
     };

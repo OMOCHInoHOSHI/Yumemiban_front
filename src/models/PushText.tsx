@@ -18,3 +18,5 @@ export const pushText = (nickname: string, dreamtext: string) => {
 export const getNickname = () => {
     return 'nickname';
 }
+
+export default  pushText;

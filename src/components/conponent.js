@@ -24,8 +24,10 @@ const RoundedBox = ({ width, height, color, borderRadius, children }) => {
     };
     return React.createElement("div", { style: style }, children);
 };
-// export default RoundedBox;
-// 背景のコンポーネントE--------------------------------------------------------------------------
+const GenerateButton = ({ onClick }) => {
+    return (React.createElement("button", { onClick: onClick }, "\u751F\u6210"));
+};
+// 生成ボタンのコンポーネントE--------------------------------------------------------------------------
 // 複数エクスポート
 // 名前付きエクスポート
 export default { InputForm, RoundedBox };

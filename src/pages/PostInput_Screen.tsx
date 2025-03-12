@@ -13,18 +13,18 @@ const PostInput_Screen: React.FC = () => {
   const [nickname, setNickname] = useState('');   // ニックネーム
   const [content, setContent] = useState('');     // 夢の内容
 
-  // ニックネームと夢の内容を送信する関数
-  const handleInputChange = (name: string, value: string) => {
-
-    // 入力された値を変数に格納
-    if (name === 'nickname') {
-      setNickname(value);
-    } else if (name === 'content') {
-      setContent(value);
-    }
-  };
+  // // ニックネームと夢の内容を送信する関数
+  // const handleInputChange = (name: string, value: string) => {
+  //   // 入力された値を変数に格納
+  //   if (name === 'nickname') {
+  //     setNickname(value);
+  //   } else if (name === 'content') {
+  //     setContent(value);
+  //   }
+  // };
 
   const handleSubmit = () => {
+    console.log("たなか");
     // ニックネームと文章を textpush 関数に渡す
     textpush(nickname, content);
   };
@@ -37,16 +37,19 @@ const PostInput_Screen: React.FC = () => {
 
         <p>ニックネームを入力してください</p>
       <Components.InputForm
-        input=""
+        input={nickname}  // ✅ useState の値を渡す
         required={true}
         maxLength={20}
+        onChange={setNickname}
       />
 
         <p>夢の内容を書いてみてください...(=o=;)</p>
       <Components.InputForm
-        input=""
+        input={content}  // ✅ useState の値を渡す
         required={true}
-        maxLength={50} />
+        maxLength={50}
+        onChange={setContent}
+        />
 
       </Components.RoundedBox>
 

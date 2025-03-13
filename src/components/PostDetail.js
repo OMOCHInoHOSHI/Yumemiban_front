@@ -7,7 +7,6 @@ const PostDetail = ({ posts }) => {
     const [isNovelExpanded, setIsNovelExpanded] = useState(false);
     useEffect(() => {
         console.log("postCard");
-        console.log("Post ID:", id);
         console.log("Post:", post);
         console.log("Posts:", posts); // 追加: postsプロパティのコンソール出力
     }, [id, post, posts]);

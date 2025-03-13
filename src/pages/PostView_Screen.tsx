@@ -2,35 +2,37 @@ import React, { use, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PostView_Screen.css";
 import { PostCard } from "../components/PostCard"; // 名前付きエクスポートとしてインポート
-// API
-import { Configuration, UserApiFactory } from "../api";
+// // API
+// import { Configuration, UserApiFactory } from "../api";
+import BackAPI from "../models/BackPIA";
 
 const PostView_Screen: React.FC = () => {
   const navigate = useNavigate();
-  const config = new Configuration({ basePath: "http://localhost:8089/api" });
-  // userApi作成
-  const userApi = UserApiFactory(config);
-  /*
-  // postApiの場合
-  const postApi = PostApiFactory(config);
-  // discoverApiの場合
-  const discoverApi = DiscoverApiFactory(config);
-  */
+  // const config = new Configuration({ basePath: "http://localhost:8089/api" });
+  // // userApi作成
+  // const userApi = UserApiFactory(config);
 
-  // ユーザー作成
-  const createUser = () => {
-    // signupのAPIを実行
-    userApi
-      .signupPost()
-      // then ... 成功時
-      .then((response) => {
-        console.log(response.data);
-      })
-      // catch ... 失敗時
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+  // /*
+  // // postApiの場合
+  // const postApi = PostApiFactory(config);
+  // // discoverApiの場合
+  // const discoverApi = DiscoverApiFactory(config);
+  // */
+
+  // // ユーザー作成
+  // const createUser = () => {
+  //   // signupのAPIを実行
+  //   userApi
+  //     .signupPost()
+  //     // then ... 成功時
+  //     .then((response) => {
+  //       console.log(response.data);
+  //     })
+  //     // catch ... 失敗時
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
 
   const handleEditClick = () => {
     navigate("/PostInput_Screen"); // ナビゲーション
@@ -39,7 +41,7 @@ const PostView_Screen: React.FC = () => {
   // 画面が読み込まれた時にユーザーを作成
   useEffect(() => {
     // キャッシュにユーザーがあるかを確認してない場合は実行しないようにしたい
-    createUser();
+    BackAPI.createUser();
   }, []);
 
   // 仮投稿

@@ -2,6 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PostView_Screen.css';
 import { PostCard } from '../components/PostCard'; // 名前付きエクスポートとしてインポート
+import { IconButton } from '@mui/material'; 
+import EditIcon from '@mui/icons-material/Edit';
+
 
 const PostView_Screen: React.FC = () => {
   const navigate = useNavigate();
@@ -89,7 +92,9 @@ const PostView_Screen: React.FC = () => {
   return (
     <div className="post-view">
       <h1>ポスト一覧</h1>
-      <button onClick={handleEditClick}>投稿画面へ</button> {/* ボタンをクリックするとナビゲーション */}
+      <IconButton onClick={handleEditClick} color="primary" size="large"> {/* 変更 */}
+        <EditIcon /> {/* 変更 */}
+      </IconButton>
 
       {posts.map((post) => (
         <PostCard key={post.id} posts={[post]} /> // 各投稿をPostCardに渡す

@@ -1,3 +1,14 @@
+import { request } from "http";
+import BackAPI from "./BackPIA";
+
+
+interface CreatePostRequest {
+    content: string;
+    nickname: string;
+    novel: string;
+    title: string;
+}
+
 // ニックネームに対する処理を行う関数
 export const pushNickname = (nickname: string) => {
     console.log('Nickname:', nickname);
@@ -12,6 +23,20 @@ export const pushDreamtext = (dreamtext: string) => {
 export const pushNoveltext = (dreamtext: string) => {
     console.log('Dream Content:', dreamtext);
 };
+
+const createPost= (request: CreatePostRequest) => {
+    // signupのAPIを実行
+    BackAPI.getpostApi()
+    .postsPost(react)
+    // then ... 成功時
+    .then((response) => {
+        console.log(response.data);
+    })
+    // catch ... 失敗時
+    .catch((e) => {
+        console.log(e);
+    });
+}
 
 // 複数の入力を管理する関数
 export const pushText = (nickname: string, dreamtext: string, novelText: string) => {

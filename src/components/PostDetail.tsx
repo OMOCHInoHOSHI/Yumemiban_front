@@ -1,6 +1,6 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 interface PostDetailProps {
   posts: { id: number; title: string; content: string; novel?: string }[];
@@ -12,9 +12,9 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
   const [isNovelExpanded, setIsNovelExpanded] = useState(false);
 
   useEffect(() => {
-    console.log('Post ID:', id);
-    console.log('Post:', post);
-    console.log('Posts:', posts); // 追加: postsプロパティのコンソール出力
+    console.log("postCard");
+    console.log("Post:", post);
+    console.log("Posts:", posts); // 追加: postsプロパティのコンソール出力
   }, [id, post, posts]);
 
   if (!post) {
@@ -29,14 +29,14 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
       <div
         onClick={() => setIsNovelExpanded(!isNovelExpanded)}
         style={{
-          position: isNovelExpanded ? 'fixed' : 'static',
-          top: isNovelExpanded ? 0 : 'auto',
+          position: isNovelExpanded ? "fixed" : "static",
+          top: isNovelExpanded ? 0 : "auto",
           left: 0,
-          width: isNovelExpanded ? '100%' : 'auto',
-          height: isNovelExpanded ? '100vh' : 'auto',
-          backgroundColor: isNovelExpanded ? 'white' : 'transparent',
-          zIndex: isNovelExpanded ? 10 : 'auto',
-          overflow: isNovelExpanded ? 'auto' : 'visible',
+          width: isNovelExpanded ? "100%" : "auto",
+          height: isNovelExpanded ? "100vh" : "auto",
+          backgroundColor: isNovelExpanded ? "white" : "transparent",
+          zIndex: isNovelExpanded ? 10 : "auto",
+          overflow: isNovelExpanded ? "auto" : "visible",
         }}
       >
         <h3>小説</h3>
@@ -47,3 +47,4 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
 };
 
 export default PostDetail;
+

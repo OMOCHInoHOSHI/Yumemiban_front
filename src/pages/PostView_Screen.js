@@ -1,12 +1,29 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './PostView_Screen.css';
-import { PostCard } from '../components/PostCard'; // 名前付きエクスポートとしてインポート
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./PostView_Screen.css";
+import { PostCard } from "../components/PostCard"; // 名前付きエクスポートとしてインポート
+import { Configuration, UserApiFactory } from "../api";
 const PostView_Screen = () => {
     const navigate = useNavigate();
-    const handleEditClick = () => {
-        navigate('/PostInput_Screen'); // ナビゲーション
+    const userApi = UserApiFactory(new Configuration({ basePath: "http://localhost:8089/api" }));
+    const createUser = () => {
+        console.log("creating user");
+        userApi
+            .signupPost()
+            .then((response) => {
+            console.log(response.data);
+        })
+            .catch((e) => {
+            console.log(e);
+        });
     };
+    const handleEditClick = () => {
+        navigate("/PostInput_Screen"); // ナビゲーション
+    };
+    useEffect(() => {
+        console.log("creating");
+        createUser();
+    }, []);
     // 仮投稿
     const posts = [
         {

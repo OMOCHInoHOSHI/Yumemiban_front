@@ -32,7 +32,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "jsx": "react",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

@@ -23,7 +23,7 @@ const PostInput_Screen = () => {
         setNovelText(generatedText);
     };
     return (React.createElement("div", null,
-        React.createElement("h2", null, "\u4F5C\u6210ddd"),
+        React.createElement("h2", null, "\u4F5C\u6210"),
         React.createElement(Components.RoundedBox, { width: "300px", height: "200px", color: "#f0f0f0", borderRadius: "15px" },
             React.createElement("p", null, ja_text.nickname_input_label),
             React.createElement(Components.InputForm, { input: nickname, required: true, maxLength: 20, onChange: setNickname }),

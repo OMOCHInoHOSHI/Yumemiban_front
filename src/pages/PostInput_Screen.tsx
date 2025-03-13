@@ -33,8 +33,8 @@ const PostInput_Screen: React.FC = () => {
 
   return (
     <div>
-      <h2>作成</h2>
-      <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
+      <h2 style={{ marginLeft: '20px' }}>{ja_text.create}</h2>
+      <Components.RoundedBox width="70%" height="calc(35vh)" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
         <p>{ja_text.nickname_input_label}</p>
         <Components.InputForm
           input={nickname}  // useState の値を渡す
@@ -42,7 +42,7 @@ const PostInput_Screen: React.FC = () => {
           maxLength={20}
           onChange={setNickname}
         />
-        <p>{ja_text.dream_content_label}...(=o=;)</p>
+        <p>{ja_text.dream_content_label}</p>
         <Components.InputForm
           input={content}  // useState の値を渡す
           required={true}
@@ -52,7 +52,7 @@ const PostInput_Screen: React.FC = () => {
       </Components.RoundedBox>
 
       {/* 生成された短編小説のページS */}
-      <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
+      <Components.RoundedBox width="70%" height="calc(35vh)" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
         <p>{ja_text.generated_novel_label}</p>
 
 

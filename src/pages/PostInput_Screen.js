@@ -3,6 +3,8 @@ import './PostInput_Screen.css';
 import Components from '../components/conponent';
 import textpush from '../models/PushText';
 import Novel from '../models/Novel';
+import { IconButton } from '@mui/material';
+import { SendIcon } from 'lucide-react';
 const PostInput_Screen = () => {
     // 初期値を空文字列に設定
     const [nickname, setNickname] = useState(''); // ニックネーム
@@ -31,6 +33,7 @@ const PostInput_Screen = () => {
             React.createElement("button", { onClick: sendcreateNovle }, "\u751F\u6210"),
             React.createElement("div", { className: "novel-text-field" },
                 React.createElement(Components.NovelTextFild, { novelText: novelText }))),
-        React.createElement("button", { onClick: handleSubmit }, "\u9001\u4FE1")));
+        React.createElement(IconButton, { onClick: handleSubmit },
+            React.createElement(SendIcon, null))));
 };
 export default PostInput_Screen;

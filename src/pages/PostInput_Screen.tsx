@@ -5,6 +5,8 @@ import './PostInput_Screen.css';
 import Components from '../components/conponent';
 import textpush from '../models/PushText';
 import Novel from '../models/Novel';
+import { IconButton } from '@mui/material'; 
+import { SendIcon } from 'lucide-react';
 
 const PostInput_Screen: React.FC = () => {
 
@@ -62,7 +64,7 @@ const PostInput_Screen: React.FC = () => {
       </Components.RoundedBox>
       {/* 生成された短編小説のページE */}
 
-      <button onClick={handleSubmit}>送信</button>
+      <IconButton onClick={handleSubmit}><SendIcon /></IconButton>
     </div>
   );
 };

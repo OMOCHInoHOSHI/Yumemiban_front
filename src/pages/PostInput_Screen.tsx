@@ -7,6 +7,7 @@ import textpush from '../models/PushText';
 import Novel from '../models/Novel';
 import { IconButton } from '@mui/material'; 
 import { SendIcon } from 'lucide-react';
+import ja_text from '../resous_ja.json';
 
 const PostInput_Screen: React.FC = () => {
 
@@ -34,14 +35,14 @@ const PostInput_Screen: React.FC = () => {
     <div>
       <h2>作成</h2>
       <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px">
-        <p>ニックネームを入力してください</p>
+        <p>{ja_text.nickname_input_label}</p>
         <Components.InputForm
           input={nickname}  // useState の値を渡す
           required={true}
           maxLength={20}
           onChange={setNickname}
         />
-        <p>夢の内容を書いてみてください...(=o=;)</p>
+        <p>{ja_text.dream_content_label}...(=o=;)</p>
         <Components.InputForm
           input={content}  // useState の値を渡す
           required={true}
@@ -52,10 +53,10 @@ const PostInput_Screen: React.FC = () => {
 
       {/* 生成された短編小説のページS */}
       <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px">
-        <p>生成された短編小説</p>
+        <p>{ja_text.generated_novel_label}</p>
 
 
-        <button onClick={sendcreateNovle}>生成</button>
+        <button onClick={sendcreateNovle}>{ja_text.generate_button_label}</button>
 
         <div className="novel-text-field">
           <Components.NovelTextFild novelText={novelText} />

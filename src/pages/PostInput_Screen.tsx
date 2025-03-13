@@ -14,20 +14,19 @@ const PostInput_Screen: React.FC = () => {
   const [novelText, setNovelText] = useState(''); // 生成された短編小説のテキスト
 
   const handleSubmit = () => {
-    // ニックネームと文章を textpush 関数に渡す
+    // ニックネームと内容とノベルテキストを textpush 関数に渡す
     textpush(nickname, content, novelText);
   };
 
+  // 小説の生成、セット
   const sendcreateNovle = () => {
     console.log('createNovle');
-    const generatedText = getNoveltext();
+    Novel.createNovel(nickname, content);
+    const generatedText = Novel.getNovel();
     setNovelText(generatedText);
   }
 
-  const getNoveltext = () => {
-    console.log('getNoveltext');
-    return 'noveltext';
-  }
+
 
   return (
     <div>
@@ -52,10 +51,14 @@ const PostInput_Screen: React.FC = () => {
       {/* 生成された短編小説のページS */}
       <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px">
         <p>生成された短編小説</p>
+
+
         <button onClick={sendcreateNovle}>生成</button>
+
         <div className="novel-text-field">
           <Components.NovelTextFild novelText={novelText} />
         </div>
+
       </Components.RoundedBox>
       {/* 生成された短編小説のページE */}
 

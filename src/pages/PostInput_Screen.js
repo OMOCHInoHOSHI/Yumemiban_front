@@ -2,23 +2,22 @@ import React, { useState } from 'react';
 import './PostInput_Screen.css';
 import Components from '../components/conponent';
 import textpush from '../models/PushText';
+import Novel from '../models/Novel';
 const PostInput_Screen = () => {
     // 初期値を空文字列に設定
     const [nickname, setNickname] = useState(''); // ニックネーム
     const [content, setContent] = useState(''); // 夢の内容
     const [novelText, setNovelText] = useState(''); // 生成された短編小説のテキスト
     const handleSubmit = () => {
-        // ニックネームと文章を textpush 関数に渡す
+        // ニックネームと内容とノベルテキストを textpush 関数に渡す
         textpush(nickname, content, novelText);
     };
+    // 小説の生成、セット
     const sendcreateNovle = () => {
         console.log('createNovle');
-        const generatedText = getNoveltext();
+        Novel.createNovel(nickname, content);
+        const generatedText = Novel.getNovel();
         setNovelText(generatedText);
-    };
-    const getNoveltext = () => {
-        console.log('getNoveltext');
-        return 'noveltext';
     };
     return (React.createElement("div", null,
         React.createElement("h2", null, "\u4F5C\u6210"),

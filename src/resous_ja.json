@@ -1,8 +1,8 @@
 {
-    "create": "作成",
+    "create": "夢の内容を共有しましょう...(=o=;)",
     "nickname_input_label": "ニックネームを入力してください",
     "dream_content_label": "夢の内容を書いてみてください...(=o=;)",
-    "generated_novel_label": "生成された短編小説",
-    "generate_button_label": "生成します"
+    "generated_novel_label": "短編小説が生成されました！",
+    "generate_button_label": "短編小説を生成してみましょう！"
 }
 

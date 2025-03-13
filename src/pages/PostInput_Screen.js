@@ -23,13 +23,11 @@ const PostInput_Screen = () => {
         setNovelText(generatedText);
     };
     return (React.createElement("div", null,
-        React.createElement("h2", null, "\u4F5C\u6210"),
+        React.createElement("h2", null, ja_text.create),
         React.createElement(Components.RoundedBox, { width: "300px", height: "200px", color: "#f0f0f0", borderRadius: "15px" },
             React.createElement("p", null, ja_text.nickname_input_label),
             React.createElement(Components.InputForm, { input: nickname, required: true, maxLength: 20, onChange: setNickname }),
-            React.createElement("p", null,
-                ja_text.dream_content_label,
-                "...(=o=;)"),
+            React.createElement("p", null, ja_text.dream_content_label),
             React.createElement(Components.InputForm, { input: content, required: true, maxLength: 50, onChange: setContent })),
         React.createElement(Components.RoundedBox, { width: "300px", height: "200px", color: "#f0f0f0", borderRadius: "15px" },
             React.createElement("p", null, ja_text.generated_novel_label),

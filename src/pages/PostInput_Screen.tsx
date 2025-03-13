@@ -33,7 +33,7 @@ const PostInput_Screen: React.FC = () => {
 
   return (
     <div>
-      <h2>作成</h2>
+      <h2>{ja_text.create}</h2>
       <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px">
         <p>{ja_text.nickname_input_label}</p>
         <Components.InputForm
@@ -42,7 +42,7 @@ const PostInput_Screen: React.FC = () => {
           maxLength={20}
           onChange={setNickname}
         />
-        <p>{ja_text.dream_content_label}...(=o=;)</p>
+        <p>{ja_text.dream_content_label}</p>
         <Components.InputForm
           input={content}  // useState の値を渡す
           required={true}

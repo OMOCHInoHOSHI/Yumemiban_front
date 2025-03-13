@@ -92,7 +92,7 @@ const NovelTextFild: FC<NovelTextFildProps> = ({ novelText }) => {
     return (
         <div>
             {/* <input type="text" value={novelText} readOnly /> */}
-            <h4>あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</h4>
+            <h4>{novelText}</h4>
         </div>
     );
 };

@@ -8,10 +8,16 @@ export const pushDreamtext = (dreamtext: string) => {
     console.log('Dream Content:', dreamtext);
 };
 
+// 短編小説を送信する関数
+export const pushNoveltext = (dreamtext: string) => {
+    console.log('Dream Content:', dreamtext);
+};
+
 // 複数の入力を管理する関数
-export const pushText = (nickname: string, dreamtext: string) => {
+export const pushText = (nickname: string, dreamtext: string, novelText: string) => {
     pushNickname(nickname);
     pushDreamtext(dreamtext);
+    pushNoveltext(novelText);
 }
 
 // ニックネームを取得する関数

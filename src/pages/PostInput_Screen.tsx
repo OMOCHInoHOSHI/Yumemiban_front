@@ -4,6 +4,7 @@ import './PostInput_Screen.css';
 
 import Components from '../components/conponent';
 import textpush from '../models/PushText';
+import Novel from '../models/Novel';
 
 const PostInput_Screen: React.FC = () => {
 
@@ -14,7 +15,7 @@ const PostInput_Screen: React.FC = () => {
 
   const handleSubmit = () => {
     // ニックネームと文章を textpush 関数に渡す
-    textpush(nickname, content);
+    textpush(nickname, content, novelText);
   };
 
   const sendcreateNovle = () => {

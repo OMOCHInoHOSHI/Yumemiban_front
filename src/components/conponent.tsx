@@ -83,9 +83,23 @@ const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius, c
 
 // 生成ボタンのコンポーネントE--------------------------------------------------------------------------
 
+// 生成された短編小説のコンポーネントS--------------------------------------------------------------------------
+interface NovelTextFildProps {
+    novelText: string; // 生成された短編小説のテキスト
+}
+
+const NovelTextFild: FC<NovelTextFildProps> = ({ novelText }) => {
+    return (
+        <div>
+            {/* <input type="text" value={novelText} readOnly /> */}
+            <h4>{novelText}</h4>
+        </div>
+    );
+};
+
 
 // 複数エクスポート
 // 名前付きエクスポート
 // export default { InputForm, RoundedBox };
-const Components = { InputForm, RoundedBox };
+const Components = { InputForm, RoundedBox, NovelTextFild };
 export default Components;

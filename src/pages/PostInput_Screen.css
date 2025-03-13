@@ -6,3 +6,11 @@
 .post-input h1 {
   color: #333;
 }
+
+.novel-text-field {
+  height: 50%; /* 親コンポーネントの高さに合わせる */
+  overflow-y: auto;  /* 垂直方向にスクロール可能にする */
+  padding: 10px;     /* パディングを追加 */
+  border: 1px solid #ccc; /* 境界線を追加 */
+  border-radius: 5px; /* 角を丸くする */
+}

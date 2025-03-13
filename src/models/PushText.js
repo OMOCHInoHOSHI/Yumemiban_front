@@ -6,10 +6,15 @@ export const pushNickname = (nickname) => {
 export const pushDreamtext = (dreamtext) => {
     console.log('Dream Content:', dreamtext);
 };
+// 短編小説を送信する関数
+export const pushNoveltext = (dreamtext) => {
+    console.log('Dream Content:', dreamtext);
+};
 // 複数の入力を管理する関数
-export const pushText = (nickname, dreamtext) => {
+export const pushText = (nickname, dreamtext, novelText) => {
     pushNickname(nickname);
     pushDreamtext(dreamtext);
+    pushNoveltext(novelText);
 };
 // ニックネームを取得する関数
 export const getNickname = () => {

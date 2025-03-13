@@ -24,20 +24,12 @@ const RoundedBox = ({ width, height, color, borderRadius, children }) => {
     };
     return React.createElement("div", { style: style }, children);
 };
-// export default RoundedBox;
-// 背景のコンポーネントE--------------------------------------------------------------------------
-// 生成ボタンのコンポーネントS--------------------------------------------------------------------------
-// interface GenerateButtonProps {
-//     onClick: () => void;    // ボタンがクリックされたときに呼び出される関数
-// }
-// const GenerateButton: FC<GenerateButtonProps> = ({ onClick }) => {
-//     return (
-//         <button onClick={onClick}>生成</button>
-//     );
-// };
-// 生成ボタンのコンポーネントE--------------------------------------------------------------------------
+const NovelTextFild = ({ novelText }) => {
+    return (React.createElement("div", null,
+        React.createElement("h4", null, novelText)));
+};
 // 複数エクスポート
 // 名前付きエクスポート
 // export default { InputForm, RoundedBox };
-const Components = { InputForm, RoundedBox };
+const Components = { InputForm, RoundedBox, NovelTextFild };
 export default Components;

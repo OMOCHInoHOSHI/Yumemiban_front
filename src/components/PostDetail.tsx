@@ -22,25 +22,25 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
   }
 
   return (
-    <div>
-      <h2>{post.title}</h2>
-      <p>{post.content}</p>
+    <div style={{width: '80%', margin: '0 auto' }}>
+      <h2 style={{ textAlign: 'center' }}>{post.title}</h2> {/* 中央揃え */}
+      <p style={{ textAlign: 'left' }}>{post.content}</p> {/* 左揃え */}
       <hr />
       <div
         onClick={() => setIsNovelExpanded(!isNovelExpanded)}
         style={{
           position: isNovelExpanded ? 'fixed' : 'static',
           top: isNovelExpanded ? 0 : 'auto',
-          left: 0,
-          width: isNovelExpanded ? '100%' : 'auto',
-          height: isNovelExpanded ? '100vh' : 'auto',
+          width: isNovelExpanded ? '80%' : 'auto',
+          height: isNovelExpanded ? '100vh' : '0',
           backgroundColor: isNovelExpanded ? 'white' : 'transparent',
           zIndex: isNovelExpanded ? 10 : 'auto',
           overflow: isNovelExpanded ? 'auto' : 'visible',
+          margin: '0 auto',
         }}
       >
-        <h3>小説</h3>
-        <p>{post.novel}</p>
+        <h3 style={{ textAlign: 'center' }}>小説</h3> {/* 中央揃え */}
+        <p style={{ textAlign: 'left' }}>{post.novel}</p> {/* 左揃え */}
       </div>
     </div>
   );

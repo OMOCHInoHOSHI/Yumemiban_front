@@ -13,21 +13,25 @@ const PostDetail = ({ posts }) => {
     if (!post) {
         return React.createElement("div", null, "\u6295\u7A3F\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F\u3002");
     }
-    return (React.createElement("div", null,
-        React.createElement("h2", null, post.title),
-        React.createElement("p", null, post.content),
+    return (React.createElement("div", { style: { width: '80%', margin: '0 auto' } },
+        React.createElement("h2", { style: { textAlign: 'center' } }, post.title),
+        " ",
+        React.createElement("p", { style: { textAlign: 'left' } }, post.content),
+        " ",
         React.createElement("hr", null),
         React.createElement("div", { onClick: () => setIsNovelExpanded(!isNovelExpanded), style: {
                 position: isNovelExpanded ? 'fixed' : 'static',
                 top: isNovelExpanded ? 0 : 'auto',
-                left: 0,
-                width: isNovelExpanded ? '100%' : 'auto',
-                height: isNovelExpanded ? '100vh' : 'auto',
+                width: isNovelExpanded ? '80%' : 'auto',
+                height: isNovelExpanded ? '100vh' : '0',
                 backgroundColor: isNovelExpanded ? 'white' : 'transparent',
                 zIndex: isNovelExpanded ? 10 : 'auto',
                 overflow: isNovelExpanded ? 'auto' : 'visible',
+                margin: '0 auto',
             } },
-            React.createElement("h3", null, "\u5C0F\u8AAC"),
-            React.createElement("p", null, post.novel))));
+            React.createElement("h3", { style: { textAlign: 'center' } }, "\u5C0F\u8AAC"),
+            " ",
+            React.createElement("p", { style: { textAlign: 'left' } }, post.novel),
+            " ")));
 };
 export default PostDetail;

@@ -47,6 +47,12 @@ export interface RequestPostCreateRequest {
      * @memberof RequestPostCreateRequest
      */
     'novel': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RequestPostCreateRequest
+     */
+    'title': string;
 }
 /**
  * 
@@ -108,6 +114,12 @@ export interface ResponseDiscoverResponse {
      * @type {string}
      * @memberof ResponseDiscoverResponse
      */
+    'title': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseDiscoverResponse
+     */
     'updatedAt': string;
     /**
      * 
@@ -152,6 +164,12 @@ export interface ResponsePostCreateResponse {
      * @memberof ResponsePostCreateResponse
      */
     'novel': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponsePostCreateResponse
+     */
+    'title': string;
     /**
      * 
      * @type {string}

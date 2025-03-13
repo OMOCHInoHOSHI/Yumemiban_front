@@ -52,7 +52,7 @@ const PostInput_Screen: React.FC = () => {
       <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px">
         <p>生成された短編小説</p>
         <button onClick={sendcreateNovle}>生成</button>
-        <div>
+        <div className="novel-text-field">
           <Components.NovelTextFild novelText={novelText} />
         </div>
       </Components.RoundedBox>

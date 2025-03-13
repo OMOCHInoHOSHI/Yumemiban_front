@@ -30,7 +30,7 @@ const PostInput_Screen = () => {
         React.createElement(Components.RoundedBox, { width: "300px", height: "200px", color: "#f0f0f0", borderRadius: "15px" },
             React.createElement("p", null, "\u751F\u6210\u3055\u308C\u305F\u77ED\u7DE8\u5C0F\u8AAC"),
             React.createElement("button", { onClick: sendcreateNovle }, "\u751F\u6210"),
-            React.createElement("div", null,
+            React.createElement("div", { className: "novel-text-field" },
                 React.createElement(Components.NovelTextFild, { novelText: novelText }))),
         React.createElement("button", { onClick: handleSubmit }, "\u9001\u4FE1")));
 };

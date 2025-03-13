@@ -53,16 +53,22 @@ interface RoundedBoxProps {
     height: string;         // ボックスの高さ
     color: string;          // ボックスの色
     borderRadius: string;   // ボックスの角の丸み
-    children?: ReactNode; // 子要素を受け取るためのプロパティを追加
+    justifyContent?: string; // フレックスコンテナの主軸方向の配置
+    alignItems?: string;    // フレックスコンテナの交差軸方向の配置
+    margin?: string;        // マージン
+    children?: ReactNode;   // 子要素を受け取るためのプロパティを追加
 }
 
 // 角が丸い四角形のボックスを描画し、その中に任意の子要素（テキストや他のコンポーネント）を表示することができます
-const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius, children }) => {
+const RoundedBox: FC<RoundedBoxProps> = ({ width, height, color, borderRadius, justifyContent, alignItems, margin, children }) => {
     const style = {
-    width,
-    height,
-    backgroundColor: color,
-    borderRadius,
+        width,
+        height,
+        backgroundColor: color,
+        borderRadius,
+        justifyContent,
+        alignItems,
+        margin, // 中央に配置
     };
 
     return <div style={style}>{children}</div>;

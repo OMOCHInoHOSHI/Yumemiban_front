@@ -15,12 +15,15 @@ const InputForm = ({ input, required, maxLength, onChange }) => {
         React.createElement("input", { type: "text", value: value, required: required, maxLength: maxLength, onChange: handleChange })));
 };
 // 角が丸い四角形のボックスを描画し、その中に任意の子要素（テキストや他のコンポーネント）を表示することができます
-const RoundedBox = ({ width, height, color, borderRadius, children }) => {
+const RoundedBox = ({ width, height, color, borderRadius, justifyContent, alignItems, margin, children }) => {
     const style = {
         width,
         height,
         backgroundColor: color,
         borderRadius,
+        justifyContent,
+        alignItems,
+        margin, // 中央に配置
     };
     return React.createElement("div", { style: style }, children);
 };

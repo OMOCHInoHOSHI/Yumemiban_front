@@ -10,6 +10,8 @@
 .novel-text-field {
   height: 50%; /* 親コンポーネントの高さに合わせる */
   overflow-y: auto;  /* 垂直方向にスクロール可能にする */
+  overflow-x: hidden; /* 横方向のスクロールを防ぐ */
+  word-wrap: break-word; /* 長い単語を折り返す */
   padding: 10px;     /* パディングを追加 */
   border: 1px solid #ccc; /* 境界線を追加 */
   border-radius: 5px; /* 角を丸くする */

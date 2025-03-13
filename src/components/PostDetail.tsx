@@ -2,8 +2,15 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  novel?: string;
+}
+
 interface PostDetailProps {
-  posts: { id: number; title: string; content: string; novel?: string }[];
+  posts: Post[];
 }
 
 const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {

@@ -18,7 +18,7 @@ const PostInput_Screen: React.FC = () => {
 
   const handleSubmit = () => {
     // ニックネームと内容とノベルテキストを textpush 関数に渡す
-    textpush(nickname, content, novelText);
+    textpush.pushText(nickname, content, novelText);
   };
 
   // 小説の生成、セット

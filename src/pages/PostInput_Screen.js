@@ -13,7 +13,7 @@ const PostInput_Screen = () => {
     const [novelText, setNovelText] = useState(''); // 生成された短編小説のテキスト
     const handleSubmit = () => {
         // ニックネームと内容とノベルテキストを textpush 関数に渡す
-        textpush(nickname, content, novelText);
+        textpush.pushText(nickname, content, novelText);
     };
     // 小説の生成、セット
     const sendcreateNovle = () => {

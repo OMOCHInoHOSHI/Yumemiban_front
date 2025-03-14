@@ -6,12 +6,12 @@ import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 
 
-interface Post {
-  id: number;
-  title: string;
-  content: string;
-  novel?: string;
-}
+// interface Post {
+//   id: number;
+//   title: string;
+//   content: string;
+//   novel?: string;
+// }
 
 
 // // API

@@ -4,6 +4,12 @@ import "./PostView_Screen.css";
 import { PostCard } from "../components/PostCard"; // 名前付きエクスポートとしてインポート
 import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+// interface Post {
+//   id: number;
+//   title: string;
+//   content: string;
+//   novel?: string;
+// }
 // // API
 // import { Configuration, UserApiFactory } from "../api";
 import BackAPI from "../models/BackPIA";

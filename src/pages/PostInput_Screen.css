@@ -7,6 +7,24 @@
   color: #333;
 }
 
+
+.dynamic-button{
+  font-size: calc(30vh * 0.08); /* 親ボックスの高さの5%をフォントサイズとして設定 */
+}
+
+/* ボックス内の左右パディング */
+.rounded-box-content {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 0.001%;
+}
+
+.dynamic-margin {
+  margin-top: calc(15vh * 0.3); /* 親ボックスの高さの5%をマージンとして設定 */
+  margin-bottom: calc(15vh * 0.08); /* 親ボックスの高さの5%をマージンとして設定 */
+  font-size: calc(35vh * 0.08); /* 親ボックスの高さの5%をフォントサイズとして設定 */
+}
+
 .novel-text-field {
   height: 15vh; /* 親コンポーネントの高さに合わせる */
   overflow-y: auto;  /* 垂直方向にスクロール可能にする */
@@ -17,8 +35,12 @@
   border-radius: 5px; /* 角を丸くする */
 }
 
-/* ボックス内のパディング */
-.rounded-box-content {
-  padding-left: 3%;
-  padding-right: 3%;
+/* アイコンボタンコンテナのスタイル */
+.icon-button-container {
+  position: relative;       /* 相対位置を設定 */
+  display: flex;            /* フレックスボックスを使用 */
+  justify-content: flex-end; /* 右端に配置 */
+  align-items: center;      /* 垂直方向に中央揃え */
+  width: 70%;               /* 幅を70%に設定 */
+  margin: 0 auto;           /* 中央に配置 */
 }

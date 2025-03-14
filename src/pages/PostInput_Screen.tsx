@@ -33,12 +33,12 @@ const PostInput_Screen: React.FC = () => {
 
   return (
     <div>
-      <h2 style={{ marginLeft: '20px' }}>{ja_text.create}</h2>
+      <h2 style={{ fontSize: 'calc(50vh * 0.08)', marginLeft: '20px' }}>{ja_text.create}</h2>
       <Components.RoundedBox width="70%" height="calc(35vh)" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
         <div className="rounded-box-content">
 
           {/* ニックネームの入力フォーム */}
-          <p>{ja_text.nickname_input_label}</p>
+          <p className="dynamic-margin">{ja_text.nickname_input_label}</p>
           <Components.InputForm
             width="100%"
             input={nickname}  // useState の値を渡す
@@ -48,7 +48,7 @@ const PostInput_Screen: React.FC = () => {
           />
 
           {/* 夢の内容の入力フォーム */}
-          <p>{ja_text.dream_content_label}</p>
+          <p className="dynamic-margin">{ja_text.dream_content_label}</p>
           <Components.InputForm
             width="100%"
             height="calc(9vh)"
@@ -64,9 +64,9 @@ const PostInput_Screen: React.FC = () => {
       <Components.RoundedBox width="70%" height="calc(35vh)" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
         <div className="rounded-box-content">
 
-          <p>{ja_text.generated_novel_label}</p>
+          <p className="dynamic-margin">{ja_text.generated_novel_label}</p>
 
-          <button onClick={sendcreateNovle}>{ja_text.generate_button_label}</button>
+          <button className="dynamic-button" onClick={sendcreateNovle}>{ja_text.generate_button_label}</button>
 
           <div className={`novel-text-field ${isNovelGenerated ? 'expanded' : ''}`}>
             <Components.NovelTextFild novelText={novelText} />
@@ -76,7 +76,10 @@ const PostInput_Screen: React.FC = () => {
       </Components.RoundedBox>
       {/* 生成された短編小説のページE */}
 
-      <IconButton onClick={handleSubmit}><SendIcon /></IconButton>
+      {/* 送信ボタン */}
+      <div className="icon-button-container">
+        <IconButton onClick={handleSubmit}><SendIcon /></IconButton>
+      </div>
     </div>
   );
 };

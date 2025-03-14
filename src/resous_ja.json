@@ -4,6 +4,9 @@
     "dream_content_label": "夢の内容を書いてみてください...(=o=;)",
     "generated_novel_label": "短編小説が生成されました！",
     "generate_button_label": "生成します",
-    "SelectPost_label": "短編小説"
+    "SelectPost_label": "短編小説",
+    "SelectPost_honor": "さんは",
+    "SelectPost_Nothing": "投稿が見つかりませんでした。"
+    
 }
 

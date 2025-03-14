@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import ja_text from '../resous_ja.json';
 const PostDetail = ({ posts }) => {
     const { id } = useParams();
     const post = posts.find((p) => p.id === (id));
@@ -11,12 +12,12 @@ const PostDetail = ({ posts }) => {
         console.log("Posts:", posts); // 追加: postsプロパティのコンソール出力
     }, [id, post, posts]);
     if (!post) {
-        return React.createElement("div", null, "\u6295\u7A3F\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F\u3002");
+        return React.createElement("div", null, ja_text.SelectPost_Nothing);
     }
     return (React.createElement("div", { style: { width: '80%', margin: '0 auto' } },
         React.createElement("h2", { style: { textAlign: 'center' } },
             post.nickname,
-            "\u3055\u3093\u306F",
+            ja_text.SelectPost_honor,
             post.title),
         " ",
         React.createElement("p", { style: { textAlign: 'left' } }, post.content),
@@ -32,7 +33,7 @@ const PostDetail = ({ posts }) => {
                 overflow: isNovelExpanded ? 'auto' : 'visible',
                 margin: '0 auto',
             } },
-            React.createElement("h2", { style: { textAlign: 'center' } }, "\u77ED\u7DE8\u5C0F\u8AAC"),
+            React.createElement("h2", { style: { textAlign: 'center' } }, ja_text.SelectPost_label),
             " ",
             React.createElement("p", { style: { textAlign: 'left' } }, post.novel),
             " ")));

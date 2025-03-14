@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import ja_text from '../resous_ja.json';
 
 // interface Post {
 //   id: number;
@@ -37,12 +38,12 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
   }, [id, post, posts]);
 
   if (!post) {
-    return <div>投稿が見つかりませんでした。</div>;
+    return <div>{ja_text.SelectPost_Nothing}</div>;
   }
 
   return (
     <div style={{width: '80%', margin: '0 auto' }}>
-      <h2 style={{ textAlign: 'center' }}>{post.nickname}さんは{post.title}</h2> {/* 中央揃え */}
+      <h2 style={{ textAlign: 'center' }}>{post.nickname}{ja_text.SelectPost_honor}{post.title}</h2> {/* 中央揃え */}
       <p style={{ textAlign: 'left' }}>{post.content}</p> {/* 左揃え */}
       <hr />
       <div
@@ -58,7 +59,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
           margin: '0 auto',
         }}
       >
-        <h2 style={{ textAlign: 'center' }}>短編小説</h2> {/* 中央揃え */}
+        <h2 style={{ textAlign: 'center' }}>{ja_text.SelectPost_label}</h2> {/* 中央揃え */}
         <p style={{ textAlign: 'left' }}>{post.novel}</p> {/* 左揃え */}
       </div>
     </div>

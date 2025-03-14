@@ -47,13 +47,16 @@ const PostView_Screen: React.FC = () => {
     BackAPI.createUser();
   }, []);
 
-  // 画面が読み込まれたときにポスト情報取得
   useEffect(() => {
-    Post_Get.getLastestPost().then((data) => {
-      setPosts(data);
-    })
-  });
-
+    Post_Get.getLastestPost()
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((error) => {
+        console.error("API呼び出しエラー:", error);
+        // エラー処理（例：エラーメッセージの表示）
+      });
+  }, []);
 
   // 仮投稿
   // const posts = [

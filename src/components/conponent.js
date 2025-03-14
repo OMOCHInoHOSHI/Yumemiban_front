@@ -11,8 +11,7 @@ const InputForm = ({ width, height, input, required, maxLength, onChange }) => {
         setValues(event.target.value); // InputForm内の状態更新
         onChange(event.target.value); // 親コンポーネントに値を伝える
     };
-    return (React.createElement("div", null,
-        React.createElement("input", { style: { width, height }, type: "text", value: value, required: required, maxLength: maxLength, onChange: handleChange })));
+    return (React.createElement("div", null, height ? (React.createElement("textarea", { style: { width, height, resize: 'none' }, value: value, required: required, maxLength: maxLength, onChange: handleChange })) : (React.createElement("input", { style: { width }, value: value, required: required, maxLength: maxLength, onChange: handleChange }))));
 };
 // 角が丸い四角形のボックスを描画し、その中に任意の子要素（テキストや他のコンポーネント）を表示することができます
 const RoundedBox = ({ width, height, color, borderRadius, justifyContent, alignItems, margin, children }) => {

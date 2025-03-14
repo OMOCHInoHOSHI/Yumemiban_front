@@ -24,7 +24,7 @@ const InputForm: FC<InputProps> = ({ width, height, input, required, maxLength, 
     // valueは入力フィールドの値、setValueはvalueの値を変更するための関数
     const [value, setValues] = useState(input);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setValues(event.target.value); // InputForm内の状態更新
         onChange(event.target.value); // 親コンポーネントに値を伝える
     };
@@ -32,14 +32,23 @@ const InputForm: FC<InputProps> = ({ width, height, input, required, maxLength, 
     return (
         <div>
             {/* <label>入力</label> */}
-            <input
-                style={{ width, height }} // widthとheightプロパティを適用
-                type="text"
-                value={value}
-                required={required}
-                maxLength={maxLength}
-                onChange={handleChange}
-            />
+            {height ? (
+                <textarea
+                    style={{ width, height, resize: 'none' }} // widthとheightプロパティを適用
+                    value={value}
+                    required={required}
+                    maxLength={maxLength}
+                    onChange={handleChange}
+                />
+            ) : (
+                <input
+                    style={{ width }} // widthプロパティを適用
+                    value={value}
+                    required={required}
+                    maxLength={maxLength}
+                    onChange={handleChange}
+                />
+            )}
         </div>
     );
 }

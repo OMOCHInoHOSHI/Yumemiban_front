@@ -11,6 +11,7 @@ const PostInput_Screen = () => {
     const [nickname, setNickname] = useState(''); // ニックネーム
     const [content, setContent] = useState(''); // 夢の内容
     const [novelText, setNovelText] = useState(''); // 生成された短編小説のテキスト
+    const [isNovelGenerated, setIsNovelGenerated] = useState(false); // 小説生成状態
     const handleSubmit = () => {
         // ニックネームと内容とノベルテキストを textpush 関数に渡す
         textpush(nickname, content, novelText);
@@ -21,19 +22,22 @@ const PostInput_Screen = () => {
         Novel.createNovel(nickname, content);
         const generatedText = Novel.getNovel();
         setNovelText(generatedText);
+        setIsNovelGenerated(true); // 小説生成状態を更新
     };
     return (React.createElement("div", null,
         React.createElement("h2", { style: { marginLeft: '20px' } }, ja_text.create),
         React.createElement(Components.RoundedBox, { width: "70%", height: "calc(35vh)", color: "#f0f0f0", borderRadius: "15px", justifyContent: "center", alignItems: "center", margin: "0 auto" },
-            React.createElement("p", null, ja_text.nickname_input_label),
-            React.createElement(Components.InputForm, { width: "70%", input: nickname, required: true, maxLength: 20, onChange: setNickname }),
-            React.createElement("p", null, ja_text.dream_content_label),
-            React.createElement(Components.InputForm, { width: "70%", height: "calc(10vh)", input: content, required: true, maxLength: 50, onChange: setContent })),
+            React.createElement("div", { className: "rounded-box-content" },
+                React.createElement("p", null, ja_text.nickname_input_label),
+                React.createElement(Components.InputForm, { width: "100%", input: nickname, required: true, maxLength: 20, onChange: setNickname }),
+                React.createElement("p", null, ja_text.dream_content_label),
+                React.createElement(Components.InputForm, { width: "100%", height: "calc(9vh)", input: content, required: true, maxLength: 50, onChange: setContent }))),
         React.createElement(Components.RoundedBox, { width: "70%", height: "calc(35vh)", color: "#f0f0f0", borderRadius: "15px", justifyContent: "center", alignItems: "center", margin: "0 auto" },
-            React.createElement("p", null, ja_text.generated_novel_label),
-            React.createElement("button", { onClick: sendcreateNovle }, ja_text.generate_button_label),
-            React.createElement("div", { className: "novel-text-field" },
-                React.createElement(Components.NovelTextFild, { novelText: novelText }))),
+            React.createElement("div", { className: "rounded-box-content" },
+                React.createElement("p", null, ja_text.generated_novel_label),
+                React.createElement("button", { onClick: sendcreateNovle }, ja_text.generate_button_label),
+                React.createElement("div", { className: `novel-text-field ${isNovelGenerated ? 'expanded' : ''}` },
+                    React.createElement(Components.NovelTextFild, { novelText: novelText })))),
         React.createElement(IconButton, { onClick: handleSubmit },
             React.createElement(SendIcon, null))));
 };

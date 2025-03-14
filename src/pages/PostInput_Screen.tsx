@@ -15,6 +15,7 @@ const PostInput_Screen: React.FC = () => {
   const [nickname, setNickname] = useState('');   // ニックネーム
   const [content, setContent] = useState('');     // 夢の内容
   const [novelText, setNovelText] = useState(''); // 生成された短編小説のテキスト
+  const [isNovelGenerated, setIsNovelGenerated] = useState(false); // 小説生成状態
 
   const handleSubmit = () => {
     // ニックネームと内容とノベルテキストを textpush 関数に渡す
@@ -27,44 +28,51 @@ const PostInput_Screen: React.FC = () => {
     Novel.createNovel(nickname, content);
     const generatedText = Novel.getNovel();
     setNovelText(generatedText);
+    setIsNovelGenerated(true); // 小説生成状態を更新
   }
-
-
 
   return (
     <div>
       <h2 style={{ marginLeft: '20px' }}>{ja_text.create}</h2>
       <Components.RoundedBox width="70%" height="calc(35vh)" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
-        <p>{ja_text.nickname_input_label}</p>
-        <Components.InputForm
-          width="70%"
-          input={nickname}  // useState の値を渡す
-          required={true}
-          maxLength={20}
-          onChange={setNickname}
-        />
-        <p>{ja_text.dream_content_label}</p>
-        <Components.InputForm
-          width="70%"
-          height="calc(10vh)"
-          input={content}  // useState の値を渡す
-          required={true}
-          maxLength={50}
-          onChange={setContent}
-        />
+        <div className="rounded-box-content">
+
+          {/* ニックネームの入力フォーム */}
+          <p>{ja_text.nickname_input_label}</p>
+          <Components.InputForm
+            width="100%"
+            input={nickname}  // useState の値を渡す
+            required={true}
+            maxLength={20}
+            onChange={setNickname}
+          />
+
+          {/* 夢の内容の入力フォーム */}
+          <p>{ja_text.dream_content_label}</p>
+          <Components.InputForm
+            width="100%"
+            height="calc(9vh)"
+            input={content}  // useState の値を渡す
+            required={true}
+            maxLength={50}
+            onChange={setContent}
+          />
+        </div>
       </Components.RoundedBox>
 
       {/* 生成された短編小説のページS */}
       <Components.RoundedBox width="70%" height="calc(35vh)" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
-        <p>{ja_text.generated_novel_label}</p>
+        <div className="rounded-box-content">
 
+          <p>{ja_text.generated_novel_label}</p>
 
-        <button onClick={sendcreateNovle}>{ja_text.generate_button_label}</button>
+          <button onClick={sendcreateNovle}>{ja_text.generate_button_label}</button>
 
-        <div className="novel-text-field">
-          <Components.NovelTextFild novelText={novelText} />
+          <div className={`novel-text-field ${isNovelGenerated ? 'expanded' : ''}`}>
+            <Components.NovelTextFild novelText={novelText} />
+          </div>
+
         </div>
-
       </Components.RoundedBox>
       {/* 生成された短編小説のページE */}
 

@@ -4,8 +4,21 @@ import { Heart } from "lucide-react";
 import './PostCard.css'; // CSSファイルをインポート
 
 // PostCardコンポーネントのプロパティの型を定義
+// interface PostCardProps {
+//   posts: { id: number; title: string; content: string }[];
+// }
 interface PostCardProps {
-  posts: { id: number; title: string; content: string }[];
+  posts: {
+    content: string;
+    createdAt: string;
+    id: string;
+    likes: number;
+    nickname: string;
+    novel: string;
+    title: string;
+    updatedAt: string;
+    userId: string;
+  }[];
 }
 
 // PostCardコンポーネントを定義
@@ -15,11 +28,11 @@ export function PostCard({ posts }: PostCardProps) {
   const [likedPosts, setLikedPosts] = useState<{ [key: number]: boolean }>({}); // いいねしたポストのIDを管理するステート
   const navigate = useNavigate();
 
-  const handleCardClick = (id: number) => {
+  const handleCardClick = (id: string) => {
     navigate(`/PostDetail/${id}`);
   };
 
-  const handleLikeClick = (e: React.MouseEvent, id: number) => {
+  const handleLikeClick = (e: React.MouseEvent, id: string) => {
     e.stopPropagation(); // クリックイベントが親要素に伝播するのを防ぐ
     setLikedPosts((prev) => ({
       ...prev,

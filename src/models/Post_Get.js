@@ -5,11 +5,11 @@ const getLastestPost = () => {
         .discoverLatestGet()
         .then((response) => {
         console.log(response.data);
-        return response.data.list; // `list` を返す
+        return response.data.list;
     })
         .catch((e) => {
         console.error(e);
-        return []; // エラー時は空配列を返す
+        return [];
     });
 };
 // const getLastestPost = async () => {

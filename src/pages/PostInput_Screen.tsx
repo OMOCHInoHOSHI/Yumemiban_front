@@ -77,17 +77,21 @@ const PostInput_Screen: React.FC = () => {
         margin="0 auto"
       >
         <div className="rounded-box-content">
-          <p className="dynamic-margin">{ja_text.generated_novel_label}</p>
+          <p className="dynamic-margin" style={{ opacity: isNovelGenerated ? 1 : 0 }}>
+            {ja_text.generated_novel_label}
+          </p>
 
           <button className="dynamic-button" onClick={sendcreateNovle}>
             {ja_text.generate_button_label}
           </button>
 
-          <div
-            className={`novel-text-field ${isNovelGenerated ? "expanded" : ""}`}
-          >
-            <Components.NovelTextFild novelText={novelText} />
-          </div>
+          {isNovelGenerated && (
+            <div
+              className={`novel-text-field ${isNovelGenerated ? "expanded" : ""}`}
+            >
+              <Components.NovelTextFild novelText={novelText} />
+            </div>
+          )}
         </div>
       </Components.RoundedBox>
       {/* 生成された短編小説のページE */}

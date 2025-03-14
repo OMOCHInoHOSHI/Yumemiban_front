@@ -1,10 +1,10 @@
 // API
-import { Configuration, UserApiFactory, PostApiFactory, DiscoverApiFactory } from "../api";
+import { Configuration, UserApiFactory, PostApiFactory, DiscoverApiFactory, } from "../api";
 const config = new Configuration({ basePath: "http://localhost:8089/api" });
 // userApi作成
 const userApi = UserApiFactory(config);
 // postApi作成
-const postApi = PostApiFactory(config);
+var postApi = PostApiFactory(config);
 // discoverApi作成
 const discoverApi = DiscoverApiFactory(config);
 // userApi取得
@@ -27,6 +27,8 @@ const createUser = () => {
         // then ... 成功時
         .then((response) => {
         console.log(response.data);
+        config.apiKey = "Bearer " + response.data.accessToken;
+        postApi = PostApiFactory(config);
     })
         // catch ... 失敗時
         .catch((e) => {

@@ -116,6 +116,107 @@ export class DiscoverApi extends BaseAPI {
     }
 }
 /**
+ * NovelApi - axios parameter creator
+ * @export
+ */
+export const NovelApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * 小説を生成する
+         * @summary GenerateNovel
+         * @param {RequestNovelGenerateRequest} request 小説生成リクエスト
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        novelsGeneratePost: async (request, options = {}) => {
+            // verify required parameter 'request' is not null or undefined
+            assertParamExists('novelsGeneratePost', 'request', request);
+            const localVarPath = `/novels/generate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication BearerAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            localVarRequestOptions.data = serializeDataIfNeeded(request, localVarRequestOptions, configuration);
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    };
+};
+/**
+ * NovelApi - functional programming interface
+ * @export
+ */
+export const NovelApiFp = function (configuration) {
+    const localVarAxiosParamCreator = NovelApiAxiosParamCreator(configuration);
+    return {
+        /**
+         * 小説を生成する
+         * @summary GenerateNovel
+         * @param {RequestNovelGenerateRequest} request 小説生成リクエスト
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async novelsGeneratePost(request, options) {
+            var _a, _b, _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.novelsGeneratePost(request, options);
+            const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+            const localVarOperationServerBasePath = (_c = (_b = operationServerMap['NovelApi.novelsGeneratePost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    };
+};
+/**
+ * NovelApi - factory interface
+ * @export
+ */
+export const NovelApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = NovelApiFp(configuration);
+    return {
+        /**
+         * 小説を生成する
+         * @summary GenerateNovel
+         * @param {RequestNovelGenerateRequest} request 小説生成リクエスト
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        novelsGeneratePost(request, options) {
+            return localVarFp.novelsGeneratePost(request, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * NovelApi - object-oriented interface
+ * @export
+ * @class NovelApi
+ * @extends {BaseAPI}
+ */
+export class NovelApi extends BaseAPI {
+    /**
+     * 小説を生成する
+     * @summary GenerateNovel
+     * @param {RequestNovelGenerateRequest} request 小説生成リクエスト
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NovelApi
+     */
+    novelsGeneratePost(request, options) {
+        return NovelApiFp(this.configuration).novelsGeneratePost(request, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+/**
  * PostApi - axios parameter creator
  * @export
  */
@@ -148,6 +249,35 @@ export const PostApiAxiosParamCreator = function (configuration) {
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
             localVarRequestOptions.data = serializeDataIfNeeded(request, localVarRequestOptions, configuration);
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 投稿詳細を取得する
+         * @summary GetPost
+         * @param {string} postId 投稿ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postsPostIdGet: async (postId, options = {}) => {
+            // verify required parameter 'postId' is not null or undefined
+            assertParamExists('postsPostIdGet', 'postId', postId);
+            const localVarPath = `/posts/{postId}`
+                .replace(`{${"postId"}}`, encodeURIComponent(String(postId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
             return {
                 url: toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -208,6 +338,20 @@ export const PostApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * 投稿詳細を取得する
+         * @summary GetPost
+         * @param {string} postId 投稿ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async postsPostIdGet(postId, options) {
+            var _a, _b, _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postsPostIdGet(postId, options);
+            const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+            const localVarOperationServerBasePath = (_c = (_b = operationServerMap['PostApi.postsPostIdGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * 投稿にいいねをつける
          * @summary LikePost
          * @param {string} postId 投稿ID
@@ -241,6 +385,16 @@ export const PostApiFactory = function (configuration, basePath, axios) {
             return localVarFp.postsPost(request, options).then((request) => request(axios, basePath));
         },
         /**
+         * 投稿詳細を取得する
+         * @summary GetPost
+         * @param {string} postId 投稿ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postsPostIdGet(postId, options) {
+            return localVarFp.postsPostIdGet(postId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * 投稿にいいねをつける
          * @summary LikePost
          * @param {string} postId 投稿ID
@@ -269,6 +423,17 @@ export class PostApi extends BaseAPI {
      */
     postsPost(request, options) {
         return PostApiFp(this.configuration).postsPost(request, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 投稿詳細を取得する
+     * @summary GetPost
+     * @param {string} postId 投稿ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostApi
+     */
+    postsPostIdGet(postId, options) {
+        return PostApiFp(this.configuration).postsPostIdGet(postId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 投稿にいいねをつける

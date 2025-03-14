@@ -1,15 +1,28 @@
+import BackAPI from "./BackPIA";
+
 // 生成した小説のテキストを保存する
-let novelText = '';
+let novelText = "";
 
 // 小説を作成する関数
-const createNovel = (name: string, contents: string) => {
-    novelText = '生成された小説のテキスト'+name+contents;
-}
+const createNovel = (contents: string, setNovel: (novel: string) => void) => {
+  BackAPI.getnovelApi()
+    .novelsGeneratePost({
+      content: contents,
+    })
+    .then((response) => {
+      setNovel(response.data.novel);
+    })
+    .catch((e) => {
+      console.log(e);
+      setNovel(contents);
+    });
+};
 
 // 小説を取得する関数
 const getNovel = () => {
-    return novelText;
-}
+  return novelText;
+};
 
 const Components = { getNovel, createNovel };
 export default Components;
+

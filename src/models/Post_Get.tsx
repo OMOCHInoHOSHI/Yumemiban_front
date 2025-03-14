@@ -1,22 +1,30 @@
 import BackAPI from "./BackPIA";
 
-interface GetPostRequest {
-    id: number;
-}
-
-const getLastestPost = (): Promise<any[]> => {
+interface Post {
+    "content": "string",
+    "createdAt": "string",
+    "id": "string",
+    "likes": 0,
+    "nickname": "string",
+    "novel": "string",
+    "title": "string",
+    "updatedAt": "string",
+    "userId": "string"
+  }
+const getLastestPost = (): Promise<Post[]> => {
     return BackAPI
-        .getdiscoverApi()
-        .discoverLatestGet()
-        .then((response) => {
-            console.log(response.data);
-            return response.data.list;  // `list` を返す
-        })
-        .catch((e) => {
-            console.error(e);
-            return [];  // エラー時は空配列を返す
-        });
-};
+      .getdiscoverApi()
+      .discoverLatestGet()
+      .then((response: any) => { // responseの型をanyから適切な型に変更することを推奨
+        console.log(response.data);
+        return response.data.list as Post[];
+      })
+      .catch((e) => {
+        console.error(e);
+        return [];
+      });
+  };
+
 
 
 // const getLastestPost = async () => {

@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './PostInput_Screen.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./PostInput_Screen.css";
 
-import Components from '../components/conponent';
-import textpush from '../models/PushText';
-import Novel from '../models/Novel';
-import { IconButton } from '@mui/material'; 
-import { SendIcon } from 'lucide-react';
-import ja_text from '../resous_ja.json';
+import Components from "../components/conponent";
+import textpush from "../models/PushText";
+import Novel from "../models/Novel";
+import { IconButton } from "@mui/material";
+import { SendIcon } from "lucide-react";
+import ja_text from "../resous_ja.json";
 
 const PostInput_Screen: React.FC = () => {
-
   // 初期値を空文字列に設定
-  const [nickname, setNickname] = useState('');   // ニックネーム
-  const [content, setContent] = useState('');     // 夢の内容
-  const [novelText, setNovelText] = useState(''); // 生成された短編小説のテキスト
+  const [nickname, setNickname] = useState(""); // ニックネーム
+  const [content, setContent] = useState(""); // 夢の内容
+  const [novelText, setNovelText] = useState(""); // 生成された短編小説のテキスト
 
   const handleSubmit = () => {
     // ニックネームと内容とノベルテキストを textpush 関数に渡す
@@ -23,28 +22,32 @@ const PostInput_Screen: React.FC = () => {
 
   // 小説の生成、セット
   const sendcreateNovle = () => {
-    console.log('createNovle');
-    Novel.createNovel(nickname, content);
+    console.log("createNovle");
+    Novel.createNovel(content, setNovelText);
     const generatedText = Novel.getNovel();
+    console.log(generatedText);
     setNovelText(generatedText);
-  }
-
-
+  };
 
   return (
     <div>
       <h2>作成</h2>
-      <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px">
+      <Components.RoundedBox
+        width="300px"
+        height="200px"
+        color="#f0f0f0"
+        borderRadius="15px"
+      >
         <p>{ja_text.nickname_input_label}</p>
         <Components.InputForm
-          input={nickname}  // useState の値を渡す
+          input={nickname} // useState の値を渡す
           required={true}
           maxLength={20}
           onChange={setNickname}
         />
         <p>{ja_text.dream_content_label}...(=o=;)</p>
         <Components.InputForm
-          input={content}  // useState の値を渡す
+          input={content} // useState の値を渡す
           required={true}
           maxLength={50}
           onChange={setContent}
@@ -52,22 +55,30 @@ const PostInput_Screen: React.FC = () => {
       </Components.RoundedBox>
 
       {/* 生成された短編小説のページS */}
-      <Components.RoundedBox width="300px" height="200px" color="#f0f0f0" borderRadius="15px">
+      <Components.RoundedBox
+        width="300px"
+        height="200px"
+        color="#f0f0f0"
+        borderRadius="15px"
+      >
         <p>{ja_text.generated_novel_label}</p>
 
-
-        <button onClick={sendcreateNovle}>{ja_text.generate_button_label}</button>
+        <button onClick={sendcreateNovle}>
+          {ja_text.generate_button_label}
+        </button>
 
         <div className="novel-text-field">
           <Components.NovelTextFild novelText={novelText} />
         </div>
-
       </Components.RoundedBox>
       {/* 生成された短編小説のページE */}
 
-      <IconButton onClick={handleSubmit}><SendIcon /></IconButton>
+      <IconButton onClick={handleSubmit}>
+        <SendIcon />
+      </IconButton>
     </div>
   );
 };
 
 export default PostInput_Screen;
+

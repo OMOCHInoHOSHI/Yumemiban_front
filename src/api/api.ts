@@ -26,6 +26,19 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
+ * @interface RequestNovelGenerateRequest
+ */
+export interface RequestNovelGenerateRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof RequestNovelGenerateRequest
+     */
+    'content': string;
+}
+/**
+ * 
+ * @export
  * @interface RequestPostCreateRequest
  */
 export interface RequestPostCreateRequest {
@@ -127,6 +140,19 @@ export interface ResponseDiscoverResponse {
      * @memberof ResponseDiscoverResponse
      */
     'userId': string;
+}
+/**
+ * 
+ * @export
+ * @interface ResponseNovelGenerateResponse
+ */
+export interface ResponseNovelGenerateResponse {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseNovelGenerateResponse
+     */
+    'novel': string;
 }
 /**
  * 
@@ -337,6 +363,119 @@ export class DiscoverApi extends BaseAPI {
      */
     public discoverLatestGet(lastId?: string, options?: RawAxiosRequestConfig) {
         return DiscoverApiFp(this.configuration).discoverLatestGet(lastId, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * NovelApi - axios parameter creator
+ * @export
+ */
+export const NovelApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 小説を生成する
+         * @summary GenerateNovel
+         * @param {RequestNovelGenerateRequest} request 小説生成リクエスト
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        novelsGeneratePost: async (request: RequestNovelGenerateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'request' is not null or undefined
+            assertParamExists('novelsGeneratePost', 'request', request)
+            const localVarPath = `/novels/generate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication BearerAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(request, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * NovelApi - functional programming interface
+ * @export
+ */
+export const NovelApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = NovelApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 小説を生成する
+         * @summary GenerateNovel
+         * @param {RequestNovelGenerateRequest} request 小説生成リクエスト
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async novelsGeneratePost(request: RequestNovelGenerateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseNovelGenerateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.novelsGeneratePost(request, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['NovelApi.novelsGeneratePost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * NovelApi - factory interface
+ * @export
+ */
+export const NovelApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = NovelApiFp(configuration)
+    return {
+        /**
+         * 小説を生成する
+         * @summary GenerateNovel
+         * @param {RequestNovelGenerateRequest} request 小説生成リクエスト
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        novelsGeneratePost(request: RequestNovelGenerateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ResponseNovelGenerateResponse> {
+            return localVarFp.novelsGeneratePost(request, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * NovelApi - object-oriented interface
+ * @export
+ * @class NovelApi
+ * @extends {BaseAPI}
+ */
+export class NovelApi extends BaseAPI {
+    /**
+     * 小説を生成する
+     * @summary GenerateNovel
+     * @param {RequestNovelGenerateRequest} request 小説生成リクエスト
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NovelApi
+     */
+    public novelsGeneratePost(request: RequestNovelGenerateRequest, options?: RawAxiosRequestConfig) {
+        return NovelApiFp(this.configuration).novelsGeneratePost(request, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

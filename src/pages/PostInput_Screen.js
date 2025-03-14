@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
-import './PostInput_Screen.css';
-import Components from '../components/conponent';
-import textpush from '../models/PushText';
-import Novel from '../models/Novel';
-import { IconButton } from '@mui/material';
-import { SendIcon } from 'lucide-react';
-import ja_text from '../resous_ja.json';
+import React, { useState } from "react";
+import "./PostInput_Screen.css";
+import Components from "../components/conponent";
+import textpush from "../models/PushText";
+import Novel from "../models/Novel";
+import { IconButton } from "@mui/material";
+import { SendIcon } from "lucide-react";
+import ja_text from "../resous_ja.json";
 const PostInput_Screen = () => {
     // 初期値を空文字列に設定
-    const [nickname, setNickname] = useState(''); // ニックネーム
-    const [content, setContent] = useState(''); // 夢の内容
-    const [novelText, setNovelText] = useState(''); // 生成された短編小説のテキスト
+    const [nickname, setNickname] = useState(""); // ニックネーム
+    const [content, setContent] = useState(""); // 夢の内容
+    const [novelText, setNovelText] = useState(""); // 生成された短編小説のテキスト
     const handleSubmit = () => {
         // ニックネームと内容とノベルテキストを textpush 関数に渡す
         textpush.pushText(nickname, content, novelText);
     };
     // 小説の生成、セット
     const sendcreateNovle = () => {
-        console.log('createNovle');
-        Novel.createNovel(nickname, content);
+        console.log("createNovle");
+        Novel.createNovel(content, setNovelText);
         const generatedText = Novel.getNovel();
+        console.log(generatedText);
         setNovelText(generatedText);
     };
     return (React.createElement("div", null,

@@ -42,7 +42,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
 
   return (
     <div style={{width: '80%', margin: '0 auto' }}>
-      <h2 style={{ textAlign: 'center' }}>{post.title}</h2> {/* 中央揃え */}
+      <h2 style={{ textAlign: 'center' }}>{post.nickname}さんは{post.title}</h2> {/* 中央揃え */}
       <p style={{ textAlign: 'left' }}>{post.content}</p> {/* 左揃え */}
       <hr />
       <div
@@ -58,7 +58,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
           margin: '0 auto',
         }}
       >
-        <h3 style={{ textAlign: 'center' }}>小説</h3> {/* 中央揃え */}
+        <h2 style={{ textAlign: 'center' }}>短編小説</h2> {/* 中央揃え */}
         <p style={{ textAlign: 'left' }}>{post.novel}</p> {/* 左揃え */}
       </div>
     </div>

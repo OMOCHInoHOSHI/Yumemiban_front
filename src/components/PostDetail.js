@@ -14,7 +14,10 @@ const PostDetail = ({ posts }) => {
         return React.createElement("div", null, "\u6295\u7A3F\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F\u3002");
     }
     return (React.createElement("div", { style: { width: '80%', margin: '0 auto' } },
-        React.createElement("h2", { style: { textAlign: 'center' } }, post.title),
+        React.createElement("h2", { style: { textAlign: 'center' } },
+            post.nickname,
+            "\u3055\u3093\u306F",
+            post.title),
         " ",
         React.createElement("p", { style: { textAlign: 'left' } }, post.content),
         " ",
@@ -29,7 +32,7 @@ const PostDetail = ({ posts }) => {
                 overflow: isNovelExpanded ? 'auto' : 'visible',
                 margin: '0 auto',
             } },
-            React.createElement("h3", { style: { textAlign: 'center' } }, "\u5C0F\u8AAC"),
+            React.createElement("h2", { style: { textAlign: 'center' } }, "\u77ED\u7DE8\u5C0F\u8AAC"),
             " ",
             React.createElement("p", { style: { textAlign: 'left' } }, post.novel),
             " ")));

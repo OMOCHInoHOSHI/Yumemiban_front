@@ -8,6 +8,8 @@ import React, { FC, ReactNode, useState } from 'react';
 // 入力のコンポーネントS--------------------------------------------------------------------------
 // インターフェース　コンポーネントが受け取るプロパティの型を指定
 interface InputProps {
+    width: string;          // 入力フィールドの幅
+    height?: string;         // 入力フィールドの高さ
     input: string;      // 入力フィールドの初期値
     required: boolean;  // 入力フィールドが必須かどうか
     maxLength?: number; // 入力フィールドの最大文字数(オプション)
@@ -16,7 +18,7 @@ interface InputProps {
 
 // コンポーネントの定義 Functional Component
 // nameは入力フィールドの初期値、requiredはその入力フィールドが必須であるかどうかを示す真偽値
-const InputForm: FC<InputProps> = ({ input, required, maxLength, onChange }) => {
+const InputForm: FC<InputProps> = ({ width, height, input, required, maxLength, onChange }) => {
     // const { input, required, maxLength } = props;
 
     // valueは入力フィールドの値、setValueはvalueの値を変更するための関数
@@ -31,6 +33,7 @@ const InputForm: FC<InputProps> = ({ input, required, maxLength, onChange }) => 
         <div>
             {/* <label>入力</label> */}
             <input
+                style={{ width, height }} // widthとheightプロパティを適用
                 type="text"
                 value={value}
                 required={required}

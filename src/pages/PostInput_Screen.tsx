@@ -37,6 +37,7 @@ const PostInput_Screen: React.FC = () => {
       <Components.RoundedBox width="70%" height="calc(35vh)" color="#f0f0f0" borderRadius="15px" justifyContent="center" alignItems="center" margin="0 auto">
         <p>{ja_text.nickname_input_label}</p>
         <Components.InputForm
+          width="70%"
           input={nickname}  // useState の値を渡す
           required={true}
           maxLength={20}
@@ -44,6 +45,8 @@ const PostInput_Screen: React.FC = () => {
         />
         <p>{ja_text.dream_content_label}</p>
         <Components.InputForm
+          width="70%"
+          height="calc(10vh)"
           input={content}  // useState の値を渡す
           required={true}
           maxLength={50}

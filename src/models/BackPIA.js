@@ -1,9 +1,12 @@
 // API
-import { Configuration, UserApiFactory, PostApiFactory } from "../api";
+import { Configuration, UserApiFactory, PostApiFactory, DiscoverApiFactory } from "../api";
 const config = new Configuration({ basePath: "http://localhost:8089/api" });
 // userApi作成
 const userApi = UserApiFactory(config);
+// postApi作成
 const postApi = PostApiFactory(config);
+// discoverApi作成
+const discoverApi = DiscoverApiFactory(config);
 // userApi取得
 const getuserApi = () => {
     return userApi;
@@ -11,6 +14,10 @@ const getuserApi = () => {
 // postApi取得
 const getpostApi = () => {
     return postApi;
+};
+// discoverApi取得
+const getdiscoverApi = () => {
+    return discoverApi;
 };
 // ユーザー作成
 const createUser = () => {
@@ -27,5 +34,5 @@ const createUser = () => {
     });
 };
 // エクスポート
-const BackAPI = { createUser, getuserApi, getpostApi };
+const BackAPI = { createUser, getuserApi, getpostApi, getdiscoverApi };
 export default BackAPI;

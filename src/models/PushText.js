@@ -30,7 +30,7 @@ const pushText = (nickname, dreamtext, novelText) => {
     pushNickname(nickname);
     pushDreamtext(dreamtext);
     pushNoveltext(novelText);
-    createPost({ content: dreamtext, nickname: nickname, novel: novelText, title: 'title' });
+    createPost({ content: dreamtext, nickname: nickname, novel: novelText, title: 'こんな夢を見ました...' });
 };
 // ニックネームを取得する関数
 const getNickname = () => {

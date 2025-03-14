@@ -5,6 +5,7 @@ import { PostCard } from "../components/PostCard"; // 名前付きエクスポ�
 // // API
 // import { Configuration, UserApiFactory } from "../api";
 import BackAPI from "../models/BackPIA";
+import Post_Get from "../models/Post_Get";
 const PostView_Screen = () => {
     const navigate = useNavigate();
     // const config = new Configuration({ basePath: "http://localhost:8089/api" });
@@ -38,6 +39,10 @@ const PostView_Screen = () => {
         // キャッシュにユーザーがあるかを確認してない場合は実行しないようにしたい
         BackAPI.createUser();
     }, []);
+    // 画面が読み込まれたときにポスト情報取得
+    useEffect(() => {
+        Post_Get.getLastestPost();
+    }); // 
     // 仮投稿
     const posts = [
         {

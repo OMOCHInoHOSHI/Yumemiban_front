@@ -8,7 +8,7 @@
 }
 
 .novel-text-field {
-  height: 70%; /* 親コンポーネントの高さに合わせる */
+  height: 15vh; /* 親コンポーネントの高さに合わせる */
   overflow-y: auto;  /* 垂直方向にスクロール可能にする */
   overflow-x: hidden; /* 横方向のスクロールを防ぐ */
   word-wrap: break-word; /* 長い単語を折り返す */

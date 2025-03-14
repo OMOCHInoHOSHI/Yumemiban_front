@@ -27,7 +27,9 @@ const createUser = () => {
         // then ... 成功時
         .then((response) => {
         console.log(response.data);
+        // configを更新  アクセストークンを設定
         config.apiKey = "Bearer " + response.data.accessToken;
+        // 更新したコンフィグを元にPostAPIを作成・更新
         postApi = PostApiFactory(config);
     })
         // catch ... 失敗時

@@ -14,7 +14,7 @@ const PostInput_Screen = () => {
     const [isNovelGenerated, setIsNovelGenerated] = useState(false); // 小説生成状態
     const handleSubmit = () => {
         // ニックネームと内容とノベルテキストを textpush 関数に渡す
-        textpush(nickname, content, novelText);
+        textpush.pushText(nickname, content, novelText);
     };
     // 小説の生成、セット
     const sendcreateNovle = () => {

@@ -83,7 +83,7 @@ const AppRoutes: React.FC = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<PostView_Screen posts={posts} />} />
+      <Route path="/" element={<PostView_Screen />} />
       <Route path="/PostInput_Screen" element={<PostInput_Screen />} />
       <Route path="/PostDetail/:id" element={<PostDetail posts={posts} />} /> {/* postsプロパティを渡す */}
     </Routes>

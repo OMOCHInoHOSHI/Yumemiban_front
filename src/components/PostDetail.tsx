@@ -19,9 +19,9 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
   const [isNovelExpanded, setIsNovelExpanded] = useState(false);
 
   useEffect(() => {
-    console.log('Post ID:', id);
-    console.log('Post:', post);
-    console.log('Posts:', posts); // 追加: postsプロパティのコンソール出力
+    console.log("postCard");
+    console.log("Post:", post);
+    console.log("Posts:", posts); // 追加: postsプロパティのコンソール出力
   }, [id, post, posts]);
 
   if (!post) {
@@ -54,3 +54,4 @@ const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
 };
 
 export default PostDetail;
+

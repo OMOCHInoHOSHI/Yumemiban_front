@@ -6,9 +6,9 @@ const PostDetail = ({ posts }) => {
     const post = posts.find((p) => p.id === Number(id));
     const [isNovelExpanded, setIsNovelExpanded] = useState(false);
     useEffect(() => {
-        console.log('Post ID:', id);
-        console.log('Post:', post);
-        console.log('Posts:', posts); // 追加: postsプロパティのコンソール出力
+        console.log("postCard");
+        console.log("Post:", post);
+        console.log("Posts:", posts); // 追加: postsプロパティのコンソール出力
     }, [id, post, posts]);
     if (!post) {
         return React.createElement("div", null, "\u6295\u7A3F\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F\u3002");

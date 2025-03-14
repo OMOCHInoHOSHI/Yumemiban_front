@@ -80,7 +80,7 @@ const AppRoutes = () => {
         },
     ];
     return (React.createElement(Routes, null,
-        React.createElement(Route, { path: "/", element: React.createElement(PostView_Screen, { posts: posts }) }),
+        React.createElement(Route, { path: "/", element: React.createElement(PostView_Screen, null) }),
         React.createElement(Route, { path: "/PostInput_Screen", element: React.createElement(PostInput_Screen, null) }),
         React.createElement(Route, { path: "/PostDetail/:id", element: React.createElement(PostDetail, { posts: posts }) }),
         " "));

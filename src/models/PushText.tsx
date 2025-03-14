@@ -1,28 +1,55 @@
+import BackAPI from "./BackPIA";
+
+interface CreatePostRequest {
+    content: string;
+    nickname: string;
+    novel: string;
+    title: string;
+}
+
 // ニックネームに対する処理を行う関数
-export const pushNickname = (nickname: string) => {
+const pushNickname = (nickname: string) => {
     console.log('Nickname:', nickname);
 };
 
 // 夢の内容に対する処理を行う関数
-export const pushDreamtext = (dreamtext: string) => {
+const pushDreamtext = (dreamtext: string) => {
     console.log('Dream Content:', dreamtext);
 };
 
 // 短編小説を送信する関数
-export const pushNoveltext = (dreamtext: string) => {
+const pushNoveltext = (dreamtext: string) => {
     console.log('Dream Content:', dreamtext);
 };
 
+// 投稿する関数
+const createPost= (request: CreatePostRequest) => {
+    // signupのAPIを実行
+    BackAPI.getpostApi()
+    .postsPost(request)
+    // then ... 成功時
+    .then((response) => {
+        console.log(response.data);
+    })
+    // catch ... 失敗時
+    .catch((e) => {
+        console.log(e);
+    });
+}
+
 // 複数の入力を管理する関数
-export const pushText = (nickname: string, dreamtext: string, novelText: string) => {
+const pushText = (nickname: string, dreamtext: string, novelText: string) => {
     pushNickname(nickname);
     pushDreamtext(dreamtext);
     pushNoveltext(novelText);
+
+    createPost({content: dreamtext, nickname: nickname, novel: novelText, title: 'こんな夢を見ました...'});
 }
 
 // ニックネームを取得する関数
-export const getNickname = () => {
+const getNickname = () => {
     return 'nickname';
 }
 
-export default  pushText;
+const PushText = {createPost, pushText, getNickname};
+export default  PushText;

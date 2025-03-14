@@ -7,7 +7,6 @@
   color: #333;
 }
 
-
 .dynamic-button{
   font-size: calc(30vh * 0.08); /* 親ボックスの高さの5%をフォントサイズとして設定 */
 }
@@ -17,6 +16,10 @@
   padding-left: 3%;
   padding-right: 3%;
   padding-bottom: 0.001%;
+}
+
+.rounded-box {
+  margin-bottom: 20px; /* 下部に空白を追加 */
 }
 
 .dynamic-margin {

@@ -81,11 +81,7 @@ const PostInput_Screen: React.FC = () => {
             {ja_text.generated_novel_label}
           </p>
 
-          <button
-            className="dynamic-button"
-            onClick={sendcreateNovle}
-            style={{ marginTop: isNovelGenerated ? "0" : "-20px" }}
-          >
+          <button className="dynamic-button" onClick={sendcreateNovle}>
             {ja_text.generate_button_label}
           </button>
 

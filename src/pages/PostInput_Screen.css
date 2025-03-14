@@ -18,10 +18,6 @@
   padding-bottom: 0.001%;
 }
 
-.rounded-box {
-  margin-bottom: 20px; /* 下部に空白を追加 */
-}
-
 .dynamic-margin {
   margin-top: calc(15vh * 0.3); /* 上部にスペースを追加 */
   margin-bottom: calc(15vh * 0.08); /* 下部にスペースを追加 */

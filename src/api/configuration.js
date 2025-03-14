@@ -20,7 +20,12 @@ export class Configuration {
         this.accessToken = param.accessToken;
         this.basePath = param.basePath;
         this.serverIndex = param.serverIndex;
-        this.baseOptions = Object.assign(Object.assign({}, param.baseOptions), { headers: Object.assign({}, (_a = param.baseOptions) === null || _a === void 0 ? void 0 : _a.headers) });
+        this.baseOptions = {
+            ...param.baseOptions,
+            headers: {
+                ...(_a = param.baseOptions) === null || _a === void 0 ? void 0 : _a.headers,
+            },
+        };
         this.formDataCtor = param.formDataCtor;
     }
     /**

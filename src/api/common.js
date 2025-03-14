@@ -11,15 +11,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import { RequiredError } from "./base";
 /**
  *
@@ -40,15 +31,13 @@ export const assertParamExists = function (functionName, paramName, paramValue) 
  *
  * @export
  */
-export const setApiKeyToObject = function (object, keyParamName, configuration) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (configuration && configuration.apiKey) {
-            const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                ? yield configuration.apiKey(keyParamName)
-                : yield configuration.apiKey;
-            object[keyParamName] = localVarApiKeyValue;
-        }
-    });
+export const setApiKeyToObject = async function (object, keyParamName, configuration) {
+    if (configuration && configuration.apiKey) {
+        const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+            ? await configuration.apiKey(keyParamName)
+            : await configuration.apiKey;
+        object[keyParamName] = localVarApiKeyValue;
+    }
 };
 /**
  *
@@ -63,29 +52,25 @@ export const setBasicAuthToObject = function (object, configuration) {
  *
  * @export
  */
-export const setBearerAuthToObject = function (object, configuration) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (configuration && configuration.accessToken) {
-            const accessToken = typeof configuration.accessToken === 'function'
-                ? yield configuration.accessToken()
-                : yield configuration.accessToken;
-            object["Authorization"] = "Bearer " + accessToken;
-        }
-    });
+export const setBearerAuthToObject = async function (object, configuration) {
+    if (configuration && configuration.accessToken) {
+        const accessToken = typeof configuration.accessToken === 'function'
+            ? await configuration.accessToken()
+            : await configuration.accessToken;
+        object["Authorization"] = "Bearer " + accessToken;
+    }
 };
 /**
  *
  * @export
  */
-export const setOAuthToObject = function (object, name, scopes, configuration) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (configuration && configuration.accessToken) {
-            const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                ? yield configuration.accessToken(name, scopes)
-                : yield configuration.accessToken;
-            object["Authorization"] = "Bearer " + localVarAccessTokenValue;
-        }
-    });
+export const setOAuthToObject = async function (object, name, scopes, configuration) {
+    if (configuration && configuration.accessToken) {
+        const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+            ? await configuration.accessToken(name, scopes)
+            : await configuration.accessToken;
+        object["Authorization"] = "Bearer " + localVarAccessTokenValue;
+    }
 };
 function setFlattenedQueryParams(urlSearchParams, parameter, key = "") {
     if (parameter == null)
@@ -143,7 +128,7 @@ export const toPathString = function (url) {
 export const createRequestFunction = function (axiosArgs, globalAxios, BASE_PATH, configuration) {
     return (axios = globalAxios, basePath = BASE_PATH) => {
         var _a;
-        const axiosRequestArgs = Object.assign(Object.assign({}, axiosArgs.options), { url: (axios.defaults.baseURL ? '' : (_a = configuration === null || configuration === void 0 ? void 0 : configuration.basePath) !== null && _a !== void 0 ? _a : basePath) + axiosArgs.url });
+        const axiosRequestArgs = { ...axiosArgs.options, url: (axios.defaults.baseURL ? '' : (_a = configuration === null || configuration === void 0 ? void 0 : configuration.basePath) !== null && _a !== void 0 ? _a : basePath) + axiosArgs.url };
         return axios.request(axiosRequestArgs);
     };
 };

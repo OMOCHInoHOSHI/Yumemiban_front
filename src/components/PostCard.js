@@ -13,7 +13,10 @@ export function PostCard({ posts }) {
     };
     const handleLikeClick = (e, id) => {
         e.stopPropagation(); // クリックイベントが親要素に伝播するのを防ぐ
-        setLikedPosts((prev) => (Object.assign(Object.assign({}, prev), { [id]: !prev[id] })));
+        setLikedPosts((prev) => ({
+            ...prev,
+            [id]: !prev[id], // 各ポストごとにいいねをトグル
+        }));
         console.log(`Liked post ID: ${id}`); // IDをコンソールに出力
     };
     return (React.createElement("div", null, posts.map((post) => (React.createElement("div", { key: post.id, className: "post-card w-full max-w-md mx-auto p-6 rounded", onClick: () => handleCardClick(post.id) },

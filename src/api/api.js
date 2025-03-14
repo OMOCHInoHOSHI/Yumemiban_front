@@ -11,15 +11,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -39,7 +30,7 @@ export const DiscoverApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        discoverLatestGet: (lastId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        discoverLatestGet: async (lastId, options = {}) => {
             const localVarPath = `/discover/latest`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47,7 +38,7 @@ export const DiscoverApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             if (lastId !== undefined) {
@@ -55,12 +46,12 @@ export const DiscoverApiAxiosParamCreator = function (configuration) {
             }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
             return {
                 url: toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
             };
-        }),
+        },
     };
 };
 /**
@@ -77,14 +68,12 @@ export const DiscoverApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        discoverLatestGet(lastId, options) {
+        async discoverLatestGet(lastId, options) {
             var _a, _b, _c;
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.discoverLatestGet(lastId, options);
-                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
-                const localVarOperationServerBasePath = (_c = (_b = operationServerMap['DiscoverApi.discoverLatestGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
-                return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-            });
+            const localVarAxiosArgs = await localVarAxiosParamCreator.discoverLatestGet(lastId, options);
+            const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+            const localVarOperationServerBasePath = (_c = (_b = operationServerMap['DiscoverApi.discoverLatestGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     };
 };
@@ -139,7 +128,7 @@ export const PostApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postsPost: (request, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        postsPost: async (request, options = {}) => {
             // verify required parameter 'request' is not null or undefined
             assertParamExists('postsPost', 'request', request);
             const localVarPath = `/posts`;
@@ -149,21 +138,21 @@ export const PostApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication BearerAuth required
-            yield setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration);
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
             localVarRequestOptions.data = serializeDataIfNeeded(request, localVarRequestOptions, configuration);
             return {
                 url: toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
             };
-        }),
+        },
         /**
          * 投稿にいいねをつける
          * @summary LikePost
@@ -171,7 +160,7 @@ export const PostApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postsPostIdLikesPost: (postId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        postsPostIdLikesPost: async (postId, options = {}) => {
             // verify required parameter 'postId' is not null or undefined
             assertParamExists('postsPostIdLikesPost', 'postId', postId);
             const localVarPath = `/posts/{postId}/likes`
@@ -182,19 +171,19 @@ export const PostApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication BearerAuth required
-            yield setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration);
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration);
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
             return {
                 url: toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
             };
-        }),
+        },
     };
 };
 /**
@@ -211,14 +200,12 @@ export const PostApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postsPost(request, options) {
+        async postsPost(request, options) {
             var _a, _b, _c;
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.postsPost(request, options);
-                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
-                const localVarOperationServerBasePath = (_c = (_b = operationServerMap['PostApi.postsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
-                return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-            });
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postsPost(request, options);
+            const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+            const localVarOperationServerBasePath = (_c = (_b = operationServerMap['PostApi.postsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 投稿にいいねをつける
@@ -227,14 +214,12 @@ export const PostApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postsPostIdLikesPost(postId, options) {
+        async postsPostIdLikesPost(postId, options) {
             var _a, _b, _c;
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.postsPostIdLikesPost(postId, options);
-                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
-                const localVarOperationServerBasePath = (_c = (_b = operationServerMap['PostApi.postsPostIdLikesPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
-                return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-            });
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postsPostIdLikesPost(postId, options);
+            const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+            const localVarOperationServerBasePath = (_c = (_b = operationServerMap['PostApi.postsPostIdLikesPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     };
 };
@@ -309,7 +294,7 @@ export const UserApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        signupPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        signupPost: async (options = {}) => {
             const localVarPath = `/signup`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -317,17 +302,17 @@ export const UserApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
             return {
                 url: toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
             };
-        }),
+        },
     };
 };
 /**
@@ -343,14 +328,12 @@ export const UserApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        signupPost(options) {
+        async signupPost(options) {
             var _a, _b, _c;
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.signupPost(options);
-                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
-                const localVarOperationServerBasePath = (_c = (_b = operationServerMap['UserApi.signupPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
-                return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-            });
+            const localVarAxiosArgs = await localVarAxiosParamCreator.signupPost(options);
+            const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+            const localVarOperationServerBasePath = (_c = (_b = operationServerMap['UserApi.signupPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     };
 };

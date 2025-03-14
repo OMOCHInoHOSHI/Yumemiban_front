@@ -22,6 +22,7 @@ const pushNoveltext = (dreamtext: string) => {
     console.log('Dream Content:', dreamtext);
 };
 
+// 投稿する関数
 const createPost= (request: CreatePostRequest) => {
     // signupのAPIを実行
     BackAPI.getpostApi()
@@ -41,6 +42,8 @@ const pushText = (nickname: string, dreamtext: string, novelText: string) => {
     pushNickname(nickname);
     pushDreamtext(dreamtext);
     pushNoveltext(novelText);
+
+    createPost({content: dreamtext, nickname: nickname, novel: novelText, title: 'こんな夢を見ました...'});
 }
 
 // ニックネームを取得する関数

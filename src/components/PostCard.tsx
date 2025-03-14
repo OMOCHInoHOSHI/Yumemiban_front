@@ -44,7 +44,7 @@ export function PostCard({ posts }: PostCardProps) {
   return (
     <div>
       {posts.map((post) => (
-        <div 
+        <div
           key={post.id}
           className="post-card w-full max-w-md mx-auto p-6 rounded"
           onClick={() => handleCardClick(post.id)} // カードクリック時にナビゲート

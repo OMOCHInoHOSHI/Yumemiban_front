@@ -1,5 +1,5 @@
 // API
-import { Configuration, UserApiFactory, PostApiFactory, DiscoverApiFactory, } from "../api";
+import { Configuration, UserApiFactory, PostApiFactory, DiscoverApiFactory, NovelApiFactory, } from "../api";
 const config = new Configuration({ basePath: "http://localhost:8089/api" });
 // userApi作成
 const userApi = UserApiFactory(config);
@@ -7,6 +7,8 @@ const userApi = UserApiFactory(config);
 var postApi = PostApiFactory(config);
 // discoverApi作成
 const discoverApi = DiscoverApiFactory(config);
+// novelApi
+var novelApi = NovelApiFactory(config);
 // userApi取得
 const getuserApi = () => {
     return userApi;
@@ -18,6 +20,9 @@ const getpostApi = () => {
 // discoverApi取得
 const getdiscoverApi = () => {
     return discoverApi;
+};
+const getnovelApi = () => {
+    return novelApi;
 };
 // ユーザー作成
 const createUser = () => {
@@ -31,6 +36,7 @@ const createUser = () => {
         config.apiKey = "Bearer " + response.data.accessToken;
         // 更新したコンフィグを元にPostAPIを作成・更新
         postApi = PostApiFactory(config);
+        novelApi = NovelApiFactory(config);
     })
         // catch ... 失敗時
         .catch((e) => {
@@ -38,5 +44,11 @@ const createUser = () => {
     });
 };
 // エクスポート
-const BackAPI = { createUser, getuserApi, getpostApi, getdiscoverApi };
+const BackAPI = {
+    createUser,
+    getuserApi,
+    getpostApi,
+    getdiscoverApi,
+    getnovelApi,
+};
 export default BackAPI;

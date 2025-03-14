@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 const PostDetail = ({ posts }) => {
     const { id } = useParams();
-    const post = posts.find((p) => p.id === Number(id));
+    const post = posts.find((p) => p.id === (id));
     const [isNovelExpanded, setIsNovelExpanded] = useState(false);
     useEffect(() => {
         console.log("postCard");

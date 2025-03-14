@@ -2,11 +2,23 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+// interface Post {
+//   id: number;
+//   title: string;
+//   content: string;
+//   novel?: string;
+// }
+
 interface Post {
-  id: number;
-  title: string;
-  content: string;
-  novel?: string;
+  "content": "string",
+  "createdAt": "string",
+  "id": "string",
+  "likes": 0,
+  "nickname": "string",
+  "novel": "string",
+  "title": "string",
+  "updatedAt": "string",
+  "userId": "string"
 }
 
 interface PostDetailProps {
@@ -15,7 +27,7 @@ interface PostDetailProps {
 
 const PostDetail: React.FC<PostDetailProps> = ({ posts }) => {
   const { id } = useParams<{ id: string }>();
-  const post = posts.find((p) => p.id === Number(id));
+  const post = posts.find((p) => p.id === (id));
   const [isNovelExpanded, setIsNovelExpanded] = useState(false);
 
   useEffect(() => {

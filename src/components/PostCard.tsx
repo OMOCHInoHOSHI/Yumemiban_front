@@ -51,7 +51,10 @@ export function PostCard({ posts }: PostCardProps) {
         >
           {/* 投稿者の名前を表示 */}
           <div className="header-container flex justify-between items-center mb-2">
-            <div className="font-medium text-lg">{post.title}</div>
+            <div>
+              <div className="nickname font-semibold text-sm text-gray-600">{post.nickname}さん</div> {/* ニックネームを追加 */}
+              <div className="font-medium text-lg">{post.title}</div>
+            </div>
             {/* いいねボタン */}
             <button
               // onClick={(e) => {

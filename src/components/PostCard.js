@@ -21,7 +21,10 @@ export function PostCard({ posts }) {
     };
     return (React.createElement("div", null, posts.map((post) => (React.createElement("div", { key: post.id, className: "post-card w-full max-w-md mx-auto p-6 rounded", onClick: () => handleCardClick(post.id) },
         React.createElement("div", { className: "header-container flex justify-between items-center mb-2" },
-            React.createElement("div", { className: "font-medium text-lg" }, post.title),
+            React.createElement("div", null,
+                React.createElement("div", { className: "nickname font-semibold text-sm text-gray-600" }, post.nickname),
+                " ",
+                React.createElement("div", { className: "font-medium text-lg" }, post.title)),
             React.createElement("button", { 
                 // onClick={(e) => {
                 //   e.stopPropagation(); // クリックイベントが親要素に伝播するのを防ぐ

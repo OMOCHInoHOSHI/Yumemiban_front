@@ -11,11 +11,21 @@ interface PostCardProps {
 // PostCardコンポーネントを定義
 export function PostCard({ posts }: PostCardProps) {
   // likedステートを定義し、初期値をfalseに設定
-  const [liked, setLiked] = useState(false);
+  // const [liked, setLiked] = useState(false);
+  const [likedPosts, setLikedPosts] = useState<{ [key: number]: boolean }>({}); // いいねしたポストのIDを管理するステート
   const navigate = useNavigate();
 
   const handleCardClick = (id: number) => {
     navigate(`/PostDetail/${id}`);
+  };
+
+  const handleLikeClick = (e: React.MouseEvent, id: number) => {
+    e.stopPropagation(); // クリックイベントが親要素に伝播するのを防ぐ
+    setLikedPosts((prev) => ({
+      ...prev,
+      [id]: !prev[id], // 各ポストごとにいいねをトグル
+    }));
+    console.log(`Liked post ID: ${id}`); // IDをコンソールに出力
   };
 
   return (
@@ -31,14 +41,17 @@ export function PostCard({ posts }: PostCardProps) {
             <div className="font-medium text-lg">{post.title}</div>
             {/* いいねボタン */}
             <button
+              // onClick={(e) => {
+              //   e.stopPropagation(); // クリックイベントが親要素に伝播するのを防ぐ
+              //   setLiked(!liked); // ボタンがクリックされたときにlikedステートをトグル
+              // }}
               onClick={(e) => {
-                e.stopPropagation(); // クリックイベントが親要素に伝播するのを防ぐ
-                setLiked(!liked); // ボタンがクリックされたときにlikedステートをトグル
-              }}
+                handleLikeClick(e, post.id);
+              }} // 修正: post.id を渡す
               className="heart-button focus:outline-none"
-              aria-label={liked ? "Unlike" : "Like"} // アクセシビリティのためのラベル
+              aria-label={likedPosts[post.id]  ? "Unlike" : "Like"} // アクセシビリティのためのラベル
             >
-              <Heart className={`heart-icon h-6 w-6 transition-all ${liked ? "liked" : ""}`} />
+              <Heart className={`heart-icon h-6 w-6 transition-all ${likedPosts[post.id]  ? "liked" : ""}`} />
             </button>
           </div>
           <div className="content-container flex justify-between items-start">

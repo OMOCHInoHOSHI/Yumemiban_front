@@ -4,6 +4,7 @@ import "./PostView_Screen.css";
 import { PostCard } from "../components/PostCard"; // 名前付きエクスポートとしてインポート
 import { IconButton } from '@mui/material'; 
 import EditIcon from '@mui/icons-material/Edit';
+import ja_text from "../resous_ja.json";
 
 
 // interface Post {
@@ -65,7 +66,8 @@ const PostView_Screen: React.FC = () => {
         setPosts(data);
       })
       .catch((error) => {
-        console.error("API呼び出しエラー:", error);
+        console.error(ja_text.create, error);
+        // console.error(`${ja_text.create}`, error);
         // エラー処理（例：エラーメッセージの表示）
       });
   }, []);
@@ -74,7 +76,7 @@ const PostView_Screen: React.FC = () => {
 
   return (
     <div className="post-view">
-      <h1>ポスト一覧</h1>
+      <h1>{ja_text.postView_label}</h1>
       <IconButton onClick={handleEditClick} color="primary" size="large"> {/* 変更 */}
         <EditIcon />{" "}
       {/* 変更 */}

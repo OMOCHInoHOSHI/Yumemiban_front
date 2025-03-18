@@ -8,6 +8,6 @@
     "SelectPost_honor": "さんは",
     "SelectPost_Nothing": "投稿が見つかりませんでした。",
     "postView_label": "ポスト一覧",
-    "getlastuser": "API呼び出しエラー"
+    "getlastuser_Nothing": "API呼び出しエラー"
 }
 

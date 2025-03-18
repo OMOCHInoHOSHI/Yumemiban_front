@@ -6,7 +6,8 @@
     "generate_button_label": "生成します",
     "SelectPost_label": "短編小説",
     "SelectPost_honor": "さんは",
-    "SelectPost_Nothing": "投稿が見つかりませんでした。"
-    
+    "SelectPost_Nothing": "投稿が見つかりませんでした。",
+    "postView_label": "ポスト一覧",
+    "getlastuser": "API呼び出しエラー"
 }
 
